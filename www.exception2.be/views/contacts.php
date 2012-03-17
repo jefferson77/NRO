@@ -1,0 +1,1 @@
+<?php readfile($DataSiteURL.'inserts/agents.php?l='.$_GET['l']); ?>

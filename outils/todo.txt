@@ -1,0 +1,3 @@
+TODO list (A ajouter dans TRAC)
+---------
+1 - Updater les pages PDF basées sur PdfLib en Latex (ou Fpdf, mais Latex c'est mieux).

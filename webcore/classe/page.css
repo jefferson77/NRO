@@ -1,0 +1,172 @@
+BODY
+{
+	background-color: white;
+	background-image:  url(../images/page.jpg);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: left top;
+	font-family: Helvetica,Arial,Geneva,Swiss,SunSans-Regular,Sans-Serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #848484;
+}
+BODY.blanc
+{
+	background-color: white;
+	background-image:  url(../images/pagez.jpg);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+	font-family: Helvetica,Arial,Geneva,Swiss,SunSans-Regular,Sans-Serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #848484;
+}
+
+BODY.basgauche
+{
+	background-image:   url(../images/05.jpg);
+
+}
+BODY.mailing
+{
+	background-color: #369;
+	font-family: Arial,Helvetica,Geneva,Swiss,SunSans-Regular,Sans-Serif;
+	font-size: small;
+	font-size: 12px;
+	color: black;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+table {
+	font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular, Sans-Serif;
+	font-size: 12px;
+	font-style: normal;
+	color: #848484;
+
+}
+th.bleu
+{
+	color: #336699;
+	font-size: 12px;
+	text-align: left;
+	font-weight: bold;
+}
+
+.boutonx {
+	background-image:  url(../page/illu/bouton/2.gif); 
+	background-repeat: repeat-x;
+}
+
+.inline {
+display: inline;
+}
+
+
+A
+{
+	color: #369;
+	font-weight: bold;
+}
+A:visited
+{
+	color: #336699;
+	text-decoration: underline;
+}
+
+
+A:hover
+{
+	color: #336699;
+	text-decoration: none;
+}
+
+A:active
+{
+	color: #336699;
+	text-decoration: underline;
+}
+
+A.aboutonx:link  { color: #ffffff; }
+A.aboutonx:visited  { color: #ffffff; }
+A.aboutonx:active  { color: #ffffff; }
+A.aboutonx:hover { color: #ffffff; }
+
+
+H1
+{
+	font-size: 16px;
+	color: #4587A6;
+	text-align: left;
+	font-style: normal;
+	font-weight: bold;
+}
+
+H2
+{
+	font-size: 14px;
+	color: gray;
+	text-align: left;
+	font-weight: lighter;
+}
+H3
+{
+	font-size: 12px;
+	color: black;
+	text-align: left;
+	font-weight: lighter;
+}
+
+H4
+{
+	font-size: 15px;
+	color: gray;
+	text-align: left;
+	font-weight: lighter;
+}
+H5
+{
+	color: #336699;
+	font-size: 15px;
+	text-align: center;
+	font-weight: normal;
+}
+H6
+{
+	color: #336699;
+	font-size: 12px;
+	text-align: left;
+	font-weight: bold;
+	align: justify;
+}
+.menu
+{
+	font-family: Arial,Helvetica,Geneva,Swiss,SunSans-Regular,Sans-Serif;
+	font-size: 12px;
+	color: #336699;
+}
+.minitexte
+{
+	font-family: Geneva, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: black;
+}
+.minilien
+{
+	font-family: Geneva, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #336699;
+}
+.pieddepage
+{
+	background-image:   url(../images/17.jpg);
+	font-family: Geneva, Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 9px;
+	color: #848484;
+	line-height: 22px;
+	background-position: bottom;
+	font-weight: bold;
+
+}

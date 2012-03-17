@@ -1,0 +1,56 @@
+agent
+	level 		-> 		adlevel
+	out			->		isout
+	
+animation
+	idhagent	->		idagent
+	type		->		antype ### remove type
+	
+animationdevis
+	idhagent	->		idagent
+	type		->		antype ### remove type
+	
+animbuildproduit
+	free		->		degustation
+	
+animproduit
+	free		->		degustation
+	
+echeancier
+	year		->		annee
+	
+merch
+	idhagent	->		idagent
+	type		->		mtype  ### remove type
+	
+merchduplic
+	idhagent	->		idagent
+	type		->		mtype
+	
+news
+	date		->		ndate
+	
+people
+	out			->		isout
+	
+stockf
+	type		->		stype
+	
+stockticket
+	user		->		suser
+	view		->		sview
+	
+vipjob
+	idhagent	->		idagent
+	
+zoutanimation
+	idhagent	->		idagent
+	type		->		antype ### remove type
+	
+zoutanimproduit
+	free		->		degustation
+	
+zoutmerch
+	idhagent	->		idagent
+	type		->		mtype ### remove type
+	

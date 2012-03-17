@@ -1,0 +1,35 @@
+.progressBox {
+  width: 10em;
+  height: 1em;
+  margin-top: 5px;
+  position: relative;
+  float: left;
+  background: #cccccc;
+}
+
+.progressBar {
+  width: 0; 
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #437BAD;
+}
+
+.fileName {
+  float: left;
+  height: 1em;
+  margin-top: 5px;
+  margin-left: 7px;
+  position: relative;
+}
+
+/* Style for IFRAME */
+.loader {
+  border: 0; 
+  height: 0; 
+  width: 0; 
+  padding: 0; 
+  position: absolute; 
+  visibility: hidden;
+}

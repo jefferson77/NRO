@@ -1,0 +1,2 @@
+# RewriteEngine on
+# RewriteRule ^/?(fr|nl|en)/([a-zA-Z_]+)/$ index.php?l=$1&p=$2 [L]

@@ -1,0 +1,8 @@
+New Print
+=========
+- VIP - Imprimer contrats d'un job avec des notes de frais
+- WEB - Imprimer contarts vip
+- ANI - Imprimer des contrats anim avec des notes de frais
+- WEB - Imprimer contrats anim web avec des notes de frais
+
+- INTERFACE web jobiste en NL (VIP, AN, merch)

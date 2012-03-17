@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="fl_source" value="file:///C|/Documents and Settings/Jean-Paul/Bureau/sources/menu_up_fr.fla" />
+	<infoitem key="fl_replacelink_old_1" value="../page/client.php?l=fr" />
+	<infoitem key="fl_replacelink_new_1" value="192.168.0.1/structure/page/client.php?l=fr" />
+	<infoitem key="fl_replacelink_count" value="2" />
+	<infoitem key="fl_replacelink_old_2" value="../page/people.php?l=fr" />
+	<infoitem key="fl_replacelink_new_2" value="192.168.0.1/structure/page/people.php?l=fr" />
+</info>

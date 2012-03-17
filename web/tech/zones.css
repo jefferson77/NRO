@@ -1,0 +1,310 @@
+#entete
+{
+	position: fixed;
+	padding: 3px;
+	left: 0px;
+	right: 0px;
+	height: 60px;
+	font-size: 20px;
+	color: #FFF;
+	background-image: url(../illus/fondhaut.jpg);
+	border-width: 0px;
+	margin: 0px;
+} 
+
+
+#topboutons
+{
+	position: fixed;
+	top: 6px;
+	right: 6px;
+	padding: 0px;
+	width: 820px;
+	height: 52px;
+	font-size: 10px;
+	color: #EEE;
+	border-width: 0px;
+	margin: 0px;
+	border-color: #000;
+	border-style: inset;
+} 
+
+#topboutonsadmin
+{
+	position: fixed;
+	top: 6px;
+	right: 6px;
+	padding: 0px;
+	width: 720px;
+	height: 52px;
+	font-size: 10px;
+	color: #EEE;
+	border-width: 0px;
+	margin: 0px;
+	border-color: #000;
+	border-style: inset;
+} 
+
+#pied
+{
+	position: fixed;
+	bottom: 0px;
+	padding: 1px;
+	left: 0px;
+	right: 0px;
+	height: 16px;
+	font-size: 12px;
+	color: #FFF;
+	background-image: url(../illus/fondhaut.jpg);
+	border-width: 0;
+	font-family: Arial,Helvetica,Geneva,Swiss,SunSans-Regular,Sans-Serif;
+	font-size: 10px;
+} 
+
+#leftmenu
+{
+	position: fixed;
+	left: 0px;
+	top: 66px;
+	bottom: 18px;
+	padding: 1px;
+	width: 90px;
+	font-size: 12px;
+	color: #FFF;
+	background-color: #848588;
+} 
+
+#infozone
+{
+	position: fixed;
+	left: 95px;
+	right: 3px;
+	top: 69px;
+	bottom: 43px;
+	padding: 4px;
+	font-size: 12px;
+	color: #FFF;
+	background-color: #52565F;
+	overflow: auto;
+} 
+
+#infobouton
+{
+	position: fixed;
+	left: 95px;
+	right: 3px;
+	bottom: 21px;
+	height: 17px;
+	padding: 1px;
+	font-size: 12px;
+	color: #FFF;
+	background-color: #52565F;
+	text-align: center;
+} 
+
+#idsquare
+{
+	position: absolute;
+	left: 10px;
+	right: 10px;
+	top: 10px;
+	height: 50px;
+	padding: 2px;
+	font-size: 16px;
+	color: #000;
+	background-color: #367;
+	border-color: black;
+	border-width: 1px;
+	border-style: solid;
+	z-index: 11; 
+} 
+
+#centerzone
+{
+	position: fixed;
+	left: 100px;
+	right: 8px;
+	top: 75px;
+	bottom: 30px;
+	padding: 1px;
+	font-size: 12px;
+	color: #FFF;
+	background-color: #52565F;
+	border-color: black;
+	border-width: 2px;
+	border-style: solid;
+	overflow: auto;
+	z-index: 9; 
+} 
+#centerzonelarge
+{
+	position: fixed;
+	left: 10px;
+	right: 8px;
+	top: 75px;
+	bottom: 30px;
+	padding: 1px;
+	font-size: 12px;
+	color: #FFF;
+	background-color: #52565F;
+	border-color: black;
+	border-width: 2px;
+	border-style: solid;
+	overflow: auto;
+	z-index: 9; 
+} 
+
+#tablezoneup
+{
+	position: fixed;
+	left: 10px;
+	right: 8px;
+	top: 75px;
+	bottom: 130px;
+	padding: 1px;
+	font-size: 10px;
+	color: #FFF;
+	background-color: #52565F;
+	border-color: black;
+	border-width: 2px;
+	border-style: solid;
+	overflow: auto;
+	z-index: 9; 
+} 
+
+#tablezonedown
+{
+	position: fixed;
+	left: 10px;
+	right: 8px;
+	height: 95px;
+	bottom: 20px;
+	padding: 0px;
+	font-size: 9px;
+	color: #FFF;
+	background-color: #52565F;
+	border-color: black;
+	border-width: 0px;
+	border-style: solid;
+	overflow: auto;
+	z-index: 9; 
+} 
+
+#minicentervip
+{
+	position: fixed;
+	left: 2px;
+	right: 2px;
+	top: 2px;
+	bottom: 2px;
+	padding: 1px;
+	font-size: 12px;
+	color: #FFF;
+	background-color: #52565F;
+	border-color: black;
+	border-width: 2px;
+	border-style: solid;
+	overflow: auto;
+	z-index: 9; 
+} 
+
+#vars
+{
+	position: fixed;
+	left: 0px;
+	bottom: 24px;
+	padding: 1px;
+	width: 95px;
+	height: 350px;
+	font-size: 8px;
+	color: #000;
+	background-color: transparent;
+	border-color: black;
+	border-width: 1px;
+	overflow: auto;
+	border-style: solid;
+	z-index: 10; 
+
+} 
+
+td.on
+{
+	width: 69px;
+	height: 50px;
+	text-align: center;
+	vertical-align: bottom;
+	border-color: #555;
+	border-width: 0px;
+	border-style: outset;
+	padding: 0px;
+	background-image: url(../illus/button.jpg);
+	background-position: 0px -1px;
+	line-height: 12px;
+}
+
+td.on a
+{
+	display: block;
+	margin 0px: ;
+	padding: 2px;
+	color: #000;
+	text-decoration: inherit;
+}
+
+td.on a:hover
+{
+	margin 0px: ;
+	background-position: 0px -3px;
+	background-image: url(../illus/buttonon.jpg);
+}
+
+td.onmerch
+{
+	width: 69px;
+	height: 50px;
+	text-align: center;
+	vertical-align: bottom;
+	border-color: #555;
+	border-width: 0px;
+	border-style: outset;
+	padding: 0px;
+	background-image: url(../illus/button.jpg);
+	background-position: 0px -1px;
+	line-height: 12px;
+}
+
+td.onmerch a
+{
+	display: block;
+	margin 0px: ;
+	padding: 2px;
+	color: red;
+	text-decoration: inherit;
+}
+
+td.onmerch a:hover
+{
+	margin 0px: ;
+	background-position: 0px -3px;
+	background-image: url(../illus/buttonon.jpg);
+}
+
+A.bottom
+{
+	color: #FFF;
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+
+A.rouge:hover
+{
+	color: #D00;
+	text-decoration: none;
+}
+A.vert:hover
+{
+	color: #0D0;
+	text-decoration: none;
+}
+

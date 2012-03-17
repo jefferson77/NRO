@@ -1,0 +1,243 @@
+
+update people set jobconjoint = 0 where jobconjoint IS NULL or jobconjoint IN ('', '1', 'Inconnue');
+update people set jobconjoint = 1 where jobconjoint IN ('2', 'Ouvrier', 'Arbeider');
+update people set jobconjoint = 2 where jobconjoint IN ('3', 'femme ouvrage');
+update people set jobconjoint = 3 where jobconjoint IN ('4', 'Musicien', 'Employé', 'employée', 'employé SNCB', 'Maçon');
+update people set jobconjoint = 4 where jobconjoint IN ('5', 'Independant', 'Indépendant');
+update people set jobconjoint = 5 where jobconjoint IN ('6');
+update people set jobconjoint = 7 where jobconjoint IN ('8', 'employe communal', 'Travailleur des services publi');
+update people set jobconjoint = 8 where jobconjoint IN ('9', 'Autre');
+update people set jobconjoint = 9 where jobconjoint IN ('Sans');
+
+
+
+
+
+
+      $chQPC = array( # Liste des Code de Qualification Professionnelle du conjoint
+        '0' => 'INCONNUE',
+        '1' => 'OUVRIER',
+        '2' => 'GENS DE MAISON',
+        '3' => 'EMPLOYE',
+        '4' => 'INDEPENDANT',
+        '5' => 'OUVRIER DES MINES',
+        '6' => 'MARIN',
+        '7' => 'TRAVAILLEUR DES SERVICES PUBLICS',
+        '8' => 'AUTRE',
+        '9' => 'SANS');
+
+
+
+        $jobconjoint_values = array(
+          '1' => 'Inconnue',
+          '2' => 'Ouvrier',
+          '3' => 'Gens de maison',
+          '4' => 'Employ&eacute;',
+          '5' => 'Ind&eacute;pendant',
+          '6' => 'Ouvrier des mines',
+          '7' => 'Marin',
+          '8' => 'services publics',
+          '9' => 'Autre',
+        );
+
+
+
+
+
+CLEANING :
+-----------
+
+$recherche
+$onemonthago = date ("Y-m-01", strtotime("+1 day"));
+$onemonthago = date ("Y-m-d", strtotime("-1 month"));
+$onemonthago = date("Y-m-01", mktime (0,0,0,date("m"),date("d") + 1,date("Y")));
+
+$_SESSION['animhistoricquid'] = $quid;
+$_SESSION['animhistoricquod'] = $quod;
+$_SESSION['animhistoricsort'] = $sort;
+$_SESSION['animhistoricsearch'] = $recherche1;
+
+$_SESSION['planquid'] = $quid;
+$_SESSION['planquod'] = $quod;
+$_SESSION['plansort'] = $sort;
+$_SESSION['plansearch'] = $recherche1;
+
+TODO :
+-------
+track classes/ptg.php
+impressions  C4
+
+Test :
+----------
+- reliures documents (FPDF)
+- Maj infos credit
+- Noter l'outils Stats comme sinitré à cause des importants modifs
+
+
+?? demander a tierce personne
+----
+FRANCOISE : textes rappels + contenu mail d'envoie de factures'
+
+
+Todo site pages
+---------------
+- Page Events
+
+
+Neo Lingo
+---------
+- css de tablesort dans le FM
+
+
+Mods Flash
+----------
+- Multi langue
+- remove phone us
+
+
+--
+-- NULL;"700100"
+--
+-- 2 - Anim
+-- ---------
+-- 700110, 700115, 700120, 700125, 700210, 700220
+--
+-- 3 - Merch
+-- ----------
+-- 700100, 700120, 700200
+--
+-- 4 - EAS
+-- ---------
+-- 700110 BAD
+--
+--
+--
+--
+--
+--
+--
+--
+--
+-- VIP :
+-- 401652, 402403, 609194, 609196, 702040, 702284, 801755, 900115, 900116, 900117, 900131, 900146
+--
+--
+--
+--
+-- 900032, 900084, 900115, 900116, 900117, 900131, 900146, 900147, 900620, 900869, 900870, 901011, 901012, 901385, 901386, 901387, 901388, 901453, 901454, 901484, 901600
+
+
+
+SELECT f.idfac FROM facmanuel d LEFT JOIN facture f ON d.idfac = f.idfac
+WHERE (d.poste IN (700100, 700110, 700210) AND f.secteur = 1)
+or (d.poste IN (700110, 700115, 700120, 700125, 700210, 700220) AND f.secteur = 2)
+or (d.poste IN (700100, 700120, 700200) AND f.secteur = 3)
+or (d.poste IN (700110) AND f.secteur = 4)
+GROUP BY f.idfac
+
+--
+-- '700100' => 'heures animations',
+-- '700110' => 'heures merchandising',
+-- '700120' => 'heures vip',
+--
+-- '700200' => 'km animations',
+-- '700210' => 'km merch',
+-- '700220' => 'km vip',
+--
+-- '700105' => 'Briefing Anim',
+-- '700115' => 'Briefing VIP',
+-- '700125' => 'Briefing Merch',
+--
+-- '700300' => 'uniformes',
+-- '700400' => 'catering',
+-- '700900' => 'frais rembours&eacute;es ( divers)',
+-- '700931' => 'DIMONA',
+-- '700910' => 'refacturation location vehicule',
+-- '700915' => 'refacturation essence',
+-- '700920' => 'frais de parking',
+-- '700925' => 'location stock',
+-- '700930' => 'location stand',
+-- '700940' => 'coursier',
+-- '700950' => 'gobelets',
+-- '700960' => 'serviettes',
+-- '700970' => 'four',
+-- '700980' => 'cure dents',
+-- '700990' => 'cuill&egrave;re',
+-- '700995' => 'rechaud',
+-- '703000' => 'Prestations Informatique');
+--
+--
+--
+-- actualis
+--
+--
+--
+-- 1713,2346,2933,2929,2931,2316,2651,2928
+-- TODO
+-- -----
+-- Check les nouveaux postes compta dans l'export horizon
+-- - Blocage mauvais comptes dans les factures manuelles et notes crédit
+--
+-- SQL updates
+-- ------------
+-- '1' => 'Vip',
+-- '2' => 'Anim',
+-- '3' => 'Merch',
+-- '4' => 'EAS',
+
+SELECT cr.idfac FROM creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac WHERE f.secteur = 4 AND cd.poste NOT IN (700130, 700230, 700135, 700430, 700934, 700330, 700930, 700830, 700730, 700630, 700530, 700580, 700970);
+
+
+
+700100
+700200
+700300
+700550
+700900
+700931
+700940
+700941
+
+
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700910 WHERE f.secteur = 3 AND cd.poste IN (700900);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700941 WHERE f.secteur = 3 AND cd.poste IN (700950);
+
+idfac
+8070, 8071, 8072, 8115, 8137, 8141
+
+-- Prestations
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700100 WHERE f.secteur = 2 AND cd.poste IN (700110, 700120, 700130);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700110 WHERE f.secteur = 3 AND cd.poste IN (700100, 700120, 700130);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700120 WHERE f.secteur = 1 AND cd.poste IN (700100, 700110, 700130);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700130 WHERE f.secteur = 4 AND cd.poste IN (700100, 700110, 700120);
+-- Déplacememnts
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700200 WHERE f.secteur = 2 AND cd.poste IN (700210, 700220, 700230);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700210 WHERE f.secteur = 3 AND cd.poste IN (700200, 700220, 700230);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700220 WHERE f.secteur = 1 AND cd.poste IN (700200, 700210, 700230);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700230 WHERE f.secteur = 4 AND cd.poste IN (700200, 700210, 700220);
+-- Briefing
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700105 WHERE f.secteur = 2 AND cd.poste IN (700115, 700125, 700135);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700115 WHERE f.secteur = 3 AND cd.poste IN (700105, 700125, 700135);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700125 WHERE f.secteur = 1 AND cd.poste IN (700105, 700115, 700135);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700135 WHERE f.secteur = 4 AND cd.poste IN (700105, 700115, 700125);
+-- Catering
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700400 WHERE f.secteur = 2 AND cd.poste IN (700410, 700420, 700430);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700410 WHERE f.secteur = 3 AND cd.poste IN (700400, 700420, 700430);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700420 WHERE f.secteur = 1 AND cd.poste IN (700400, 700410, 700430);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700430 WHERE f.secteur = 4 AND cd.poste IN (700400, 700410, 700420);
+-- Dimona
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700931 WHERE f.secteur = 2 AND cd.poste IN (700932, 700933, 700934);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700932 WHERE f.secteur = 3 AND cd.poste IN (700931, 700933, 700934);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700933 WHERE f.secteur = 1 AND cd.poste IN (700932, 700931, 700934);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700934 WHERE f.secteur = 4 AND cd.poste IN (700931, 700932, 700933);
+-- VIP
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700320 WHERE f.secteur = 1 AND cd.poste IN (700300);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700920 WHERE f.secteur = 1 AND cd.poste IN (700900);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700960 WHERE f.secteur = 1 AND cd.poste IN (700940);
+-- ANim
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700550 WHERE f.secteur = 2 AND cd.poste IN (700930);
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700941 WHERE f.secteur = 2 AND cd.poste IN (700950);
+-- Merch
+UPDATE creditdetail cd LEFT JOIN credit cr ON cd.idfac = cr.idfac LEFT JOIN facture f ON cr.facref = f.idfac SET cd.poste = 700910 WHERE f.secteur = 3 AND cd.poste IN (700900);
+-- EAS
+

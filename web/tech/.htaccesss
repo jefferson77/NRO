@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Celsys MySQL Admin"
+AuthUserFile /Volumes/Files/webroot/configs/.htpasswd
+Require user pat nico

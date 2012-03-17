@@ -1,0 +1,31 @@
+<?php
+$phrase[0] = "Semaine ";
+$phrase[1] = "Bien à vous,\r\rPour plus d'informations ou en cas de problème, contactez votre responsable job.";
+$phrase[2] = "";
+$phrase[3] = "      Bonjour,\rVeuillez trouver ici votre planning Merchandising";
+$phrase[4] = "Magasin";
+$phrase[5] = "Date";
+$phrase[6] = "De";
+$phrase[7] = "à";
+$phrase[8] = "Tot";
+$phrase[9] = "Client";
+$phrase[10] = "Nom";
+$phrase[11] = "Produit / Note";
+$phrase[12] = "Job";
+$phrase[13] = "Planning ";
+$phrase[14] = "Page ";
+# $phrase[15] = ;
+# $phrase[16] = ;
+# $phrase[17] = ;
+# $phrase[18] = ;
+# $phrase[19] = ;
+# $phrase[20] = ;
+# $phrase[21] = ;
+# $phrase[22] = ;
+# $phrase[23] = ;
+# $phrase[24] = ;
+# $phrase[25] = ;
+# $phrase[26] = ;
+# $phrase[27] = ;
+# $phrase[28] = ;
+?>

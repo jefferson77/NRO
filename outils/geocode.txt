@@ -1,0 +1,7 @@
+Your key is:
+
+ABQIAAAAncK7u6Y6vCOout4CjUjPfhSbH9EkmmQTmyUx1tkKHz09g2FIOhSnJBa42uTM9Ld3c_iZ_wRU9n7fiQ
+
+This key is good for all URLs in this directory:
+
+http://77.109.79.37/

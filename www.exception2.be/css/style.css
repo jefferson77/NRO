@@ -1,0 +1,423 @@
+/* @override http://dev.nro/www.exception2.be/css/style.css */
+
+/* @group Basics */
+
+#main {
+	width: 980px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 0;
+}
+
+#main.static {
+	padding-left: 40px;
+}
+
+#footnote {
+	font-size: 10px;
+	text-align: center;
+	width: 960px;
+	margin-top: 30px;
+	margin-right: 20px;
+	float:  left;
+	border-top: 1px solid #565656;
+}
+
+#footnote.static {
+	width: 928px;
+	margin-left: -3px;
+}
+
+.cadre10 {
+	background: url(../illus/transp/10.png);
+	border: 1px solid #565656;
+	-moz-border-radius: 15px 0 15px 0;
+	-webkit-border-top-left-radius: 15px;
+	-webkit-border-bottom-right-radius: 15px;
+}
+
+#entete {
+	padding-top:  14px;
+	width: 915px;
+	background: url(../illus/silhouettes.png) no-repeat right 16px;
+	height: 111px;
+}
+
+#menu {
+	background: url(../illus/menufond.png) repeat-x;
+	height: 37px;
+	width: 928px;
+	margin-left: -3px;
+	border-bottom: 2px solid #2f2f2f;
+}
+
+#menu a {
+	display: table-cell;
+	text-align: center;
+	width: 131px;
+	color: #FFF;
+	text-decoration: none;
+	font-size: 14px;
+	height: 37px;
+	vertical-align: middle;
+	text-transform: uppercase;
+	border-right:1px solid #535454;
+	border-left:1px solid #2e2f2f;
+}
+
+#menu a:hover {
+	background: url(../illus/menufond-on.png) repeat-x;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: url(../illus/main_bg.gif) repeat center top;
+	font-family: "Trebuchet MS", Verdana, Arial,Helvetica,Geneva,Swiss,SunSans-Regular,Sans-Serif;
+	font-size: 0.75em;
+	line-height: 1.25em;
+	color: #cbcbcb;
+}
+/* @end */
+
+/* @group Text Format */
+
+.titre {
+	color: #BFBFBF;
+	font-size: 30px;
+	height: 31px;
+	display: inline;
+	vertical-align:-17px;
+}
+
+.titicon {
+	margin-right: 5px;
+}
+
+.logs {
+	padding: 10px;
+	margin: 20px;
+	font-size: 12px;
+}
+
+.logs a {
+	font-size: 30px;
+	text-decoration: none;
+	color: #AED138;
+	vertical-align: -40px;
+}
+
+.logs a img {
+	float: left;
+}
+
+.logs .insc {
+	text-align: center;
+	font-size: 24px;
+	margin: -10px;
+	padding: 10px;
+	margin-top: 10px;
+	-moz-border-radius: 0 0 15px 0;
+	-webkit-border-top-left-radius: 0;
+
+}
+
+.logs .insc a {
+	vertical-align: 0px;
+	color: #AED138;
+}
+
+
+h1 {
+	margin: 20px 0px;
+}
+
+
+/* @end */
+
+/* @group positions */
+.col {
+	float: left;
+	padding:  5px;
+	padding-left: 15px;
+}
+
+.col p{
+	text-align: justify;
+}
+
+
+/* @end */
+
+
+.agentcard {
+	width: 270px;
+	float: left;
+	padding: 15px;
+	margin: 5px;
+	margin-left: 15px;
+}
+.agentcard img {
+	float: left;
+	margin-right: 15px;
+}
+span.nom {
+	font-size: 18px;
+	color: #FFF;
+}
+span.fonction {
+	color: #AED138;
+}
+
+h1.secteur {
+	width: 100%;
+	font-size: 18px;
+	float: left;
+	border-bottom: 1px solid #AED138;
+	padding-bottom: 5px;
+	font-weight: normal;
+	color: #AED138;
+}
+
+
+/* @group NewsMenu */
+
+.newstitre {
+	overflow: visible;
+	padding-top: 15px;
+	padding-left: 90px;
+	padding-bottom: 7px;
+	font-size: 18px;
+	border-bottom: 1px solid #AED138;
+	color: #AED138;
+	font-weight: bold;
+	line-height: 26px;
+}
+
+.newsdate {
+	float: left;
+	text-align: right;
+	font-size: 19px;
+	line-height: 25px;
+	padding-top: 10px;
+	width: 73px;
+}
+
+.fmois {
+	color: #AED138;
+	text-transform: uppercase;
+}
+
+.fyear {
+	color: #bcc0bb;
+
+}
+.newstexte {
+	font-size: 12px;
+	text-align: justify;
+	padding: 13px 5px 5px 90px;
+
+}
+/* @end */
+
+/* @group Events */
+
+.eventtitre {
+	overflow: visible;
+	padding-top: 15px;
+	padding-left: 18px;
+	font-size: 16px;
+	border-bottom: 1px solid #AED138;
+	color: #AED138;
+/*	background: url(../illus/notebook.png) no-repeat 0 14px;*/
+}
+.eventdate {
+	margin-top: -15px;
+	float: right;
+	font-size: 10px;
+	text-align: right;
+}
+.eventtexte {
+	font-size: 12px;
+	text-align: justify;
+	padding: 5px;
+	padding-left: 25px;
+
+}
+/* @end */
+
+
+img {
+	border: 0;
+	vertical-align: top;
+	text-align: left;
+}
+
+input, select, textarea {
+	vertical-align: middle;
+	font-weight: normal;
+	font-family: Arial;
+	color: #cbcbcb;
+	font-size: 1em;
+	background: none;
+	border: solid 1px #434646;
+	font-weight: normal;
+	padding-left: 5px
+}
+
+/* @group Login Window */
+
+.logbloc {
+	text-align: center;
+	padding: 10px;
+	margin: 0 auto;
+	width: 400px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	background: #FFF;
+}
+
+.logbloc p {
+	margin: 20px;
+	font-weight: bold;
+	font-size: 14px;
+	color: #4d4d4d;
+	text-align: left;
+
+}
+
+.phone {
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	color: #a5a6a4;
+	margin-top: 15px;
+}
+
+.logbloc span {
+	font-style: italic;
+	font-size: 14px;
+	color: #6a6a6a}
+
+.logbloc a {
+	color: #0099CC;
+	text-decoration: none;
+}
+
+#logscreen {
+	padding: 20px;
+	background: #86B300 url(../illus/green_back.png) repeat-x scroll left -18px;
+	color: #FFF;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	text-align: center;
+	clear: both;
+}
+
+#logscreen label {
+	margin: 10px;
+	width: 120px;
+	font-weight: bold;
+	font-size: 18px;
+	color: #FFF;
+	text-align: right;
+	float: left;
+	display: block;
+	background-position: 0;
+}
+
+#logscreen input[type="text"], #logscreen input[type="password"] {
+	margin: 10px;
+	background: #FFF;
+	border: 1px solid #FFF;
+	font-size: 14px;
+	color: #3c3c3c;
+}
+
+.greentitre {
+	color: #aed138;
+	font-weight: bold;
+	font-size: 28px;
+	text-align: left;
+	padding: 20px;
+}
+
+
+
+/* @end */
+
+/* flags */
+#flags {
+	padding: 4px;
+	padding-left: 12px;
+	margin-left: 18px;
+	background: transparent url(../illus/ongletlangues.png) no-repeat;
+}
+
+#flags img {
+	padding-left: 4px;
+}
+
+/* @group Presentation */
+#presentation_logo {
+	float: left;
+	margin: 20px 100px 0px 150px;
+}
+
+.presdiv {
+	float:  left;
+	width: 500px;
+	text-align: justify;
+}
+
+.presdiv p {
+	margin-bottom: 15px;
+}
+
+
+
+/* @end */
+
+/* @group section vip */
+
+#vip_title {
+	margin: 30px;
+	float:  left;
+
+}
+
+.section_text {
+	width: 223px;
+	float: left;
+}
+
+.pic_gallery {
+	float: left;
+	clear: both;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+	width: 940px;
+}
+
+.vip_illu {
+	margin: 0px 5px;
+}
+
+
+
+/* @end */
+input.btn {
+	background: transparent no-repeat center center;
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	color: transparent;
+}
+
+input.formok 		{ background: url("../illus/formok.png");			width: 70px;	height: 38px; }
+input.send-button	{ background: url("../illus/send-button.png");		width: 161px;	height: 37px; margin-top: 20px }
+input.login-button	{ background: url("../illus/login-button.png");		width: 115px;	height: 34px; margin-top: 20px }

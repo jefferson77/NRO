@@ -1,0 +1,42 @@
+(CA603) Lier	9647	60	160,78	20					
+(CA606) Ninove	5971	45	132,69	135					
+(CA612) Boncelles	12705	64	198,52	0					
+(CA616) St Kruis Brugge	12453	96	129,72	115		Cartouches encre	Lames de rasoirs		
+(CA617) Hasselt	18792	80	234,90	100					
+(CA619) Tienen	11660	57,75	201,90	0		Maquillage, Vestes cuir, Cartouches encre, Access, GSM, Films photos, Tabac			
+(CA620) Fléron	8173	64	127,70	0	Tabac	Alcool, vin, champagne, Lames de rasoirs, Parapharmacie, Chaussures	Parfums - eaux de toilette, Test grossesse, Lingerie		
+(CA621) Middelkerke	9406	42	223,95	0		Lingerie, Cartouches encre, Tabac			
+(CA624) Wépion	10014	60	166,90	30	Cr&egrave;mes de soins, Parfums - eaux de toilette, Soins b&eacute;b&eacute;s		Tabac		
+(CA625) St Denijs Westrem	14225	64	222,27	60					
+(CA631) Schoten	16224	83,25	194,88	0					
+(CA634) Diest	10226	60	170,43	0					
+(CA635) Mouscron	8379	60	139,65	0		Coloration, Pantys, Lingerie, Tabac	Lames de rasoirs, Test grossesse		
+(CA637) Turnhout	13819	55	251,25	0	Alcool, vin, champagne, Lames de rasoirs, Tabac	Cr&egrave;mes de soins, Produits solaires, Soins b&eacute;b&eacute;s, Jeans, Cartouches encre, Acc. informat. + TV + Audio	Test grossesse, Pu&eacute;riculture, Films photos, Papeterie	Pantys, Chaussures, Lingerie, Vestes cuir, Access, GSM	
+(CA644) Haine st Pierre	17990	96	187,40	250		Cr&egrave;mes de soins, Soins b&eacute;b&eacute;s, Sacs communaux			
+(CA645) Gosselies	11420	60	190,33	60		Cr&egrave;mes de soins, Coloration, Parapharmacie, L&eacute;go, Barbie, Accessoires auto			
+(CA647) Malmedy	4205	30	140,17	0	Sac &agrave; main, Lingerie, Tabac				
+(CA649) Genk	4714	36	130,94	0					
+(CA652) Ronse	5790	60	96,50	0					
+(CA653) St Eloois Vijve - Waregem	4747	42	113,02	0					
+(CA659) Strombeek-Bever	11130	72	154,58	0					
+(CA660) Borsbeek	7805	42	185,83	45					
+(ca664) Oostakker	7695	37,50	205,20	40	Lingerie	Sacs communaux			
+(CA667) Burcht	5898	45	131,07	185					
+(CA669) Kraainem	14192	96	147,83	195					
+(CA674) Zemst - Mechelen	20689	96	215,51	300					
+(CA675) Korbeek-Lo (Bierbeek)	13906	84	165,55	0			Chaussures		
+(CA678) Froyennes (Tournai)	16296	90	181,07	0		Lames de rasoirs	Cr&egrave;mes de soins, Sac &agrave; main, Lingerie, Tabac		
+(CA691) Koksijde	9824	48	204,67	0		Alcool, vin, champagne, Lingerie, Tabac			
+(CA626) Soignies	12850	64	200,78	30					
+(CA639) Ans	9558	60	159,30	25	Tabac	Alcool, vin, champagne			
+(CA629) Mechelen Noord	6893	42	164,12	10	Vestes cuir	Alcool, vin, champagne, Maquillage, Lames de rasoirs, Parfums - eaux de toilette, Jeans, Cartouches encre, Films photos			
+(CA666) Gent Zwijnaarde	7593	29	261,83	0					
+(CA654) Flemalle	9681	60	161,35	0					
+(CA640) Jambes	14069	60	234,48	8		Alcool, vin, champagne, Cr&egrave;mes de soins	Lames de rasoirs, Test grossesse, Chaussures, Jeans, Access, GSM		
+(CA458) Kuringen	24094	106	227,30	0					
+(CA657) Kuurne	3886	36	107,94	10					
+(CA692) Huy	7120	36	197,78	0	Lingerie				
+(CA694) Arlon	9376	36	260,44	0					
+(CA609) Belle-ile Liège	25424	102,50	248,04	0					
+(CA608) Westerlo	5270	36	146,39	0					
+(CA600) Mons	20140	90,50	222,54	240	Cr&egrave;mes de soins, Test grossesse, Accessoires auto	Alcool, vin, champagne, Parapharmacie, Produits solaires, Tabac, Sacs communaux			

@@ -1,0 +1,50 @@
+table.fac { font-family: "Trebuchet MS", Verdana, Arial, sans-serif; font-size: 10px; background-color: #D3D3D3; color: #333333; padding: 0px; }
+
+table.fac thead td { font-size: 14px; background-color: #56576B; color: #EBEBEE; text-align: center; }
+
+/* Standart */
+table.fac thead th { font-size: 10px; background-color: #B4B5BD; }
+table.fac thead th.D { background-color: #9B9CA3; }
+table.fac thead th.F { background-color: #00CD1A; }
+table.fac thead th.P { background-color: #8C95D5; }
+
+td.jobtot { background-color: #FFB267; text-align: center; font-weight: bold; }
+td.bigtot { background-color: #FAF5D4; text-align: center; font-weight: bold; }
+td.data { padding: 0px 1px 0px 1px; }
+
+/* Deltas */
+td.jobtotD { background-color: #F0C79E; text-align: center; font-weight: bold;  color: #777; }
+td.bigtotD { background-color: #F0C79E; text-align: center; font-weight: bold;  color: #777; }
+td.dataD { padding: 0px 1px 0px 1px; background-color: #DBDBDB;  color: #777; }
+
+/* Vert Facturation */
+td.jobtotF { background-color: #6BFF67; text-align: center; font-weight: bold; }
+td.bigtotF { background-color: #B8D2B7; text-align: center; font-weight: bold; }
+td.dataF { padding: 0px 1px 0px 1px; background-color: #C7F5C4; }
+
+/* Rouge Payements */
+td.jobtotP { background-color: #8067FF; text-align: center; font-weight: bold; }
+td.bigtotP { background-color: #AEA9C8; text-align: center; font-weight: bold; }
+td.dataP { padding: 0px 1px 0px 1px; background-color: #CCC4F5; }
+
+table.fac tbody tr { background-color: #F5F5F5; text-align: center; }
+table.fac tbody tr.alt { background-color: #E6E8F5; text-align: center; }
+table.fac tbody tr.ddim { background-color: #FFDC73; text-align: center; }
+
+input[type="text"] { padding: 0px;background-color: transparent;color: #036;width: 100%;text-align: center;border-width: 0px; }
+input[disabled] { color: #7F7F7F; }
+input.lineupdate { padding: 0px;background-color: #FC9;color: #036;height: 12px;width: 12px;text-align: center;border-width: 0px; }
+
+/* Anim orange Sup */
+td.jobtotS { background-color: #C60;text-align: center;font-weight: bold;}
+td.bigtotS { background-color: #F93;text-align: center;font-weight: bold;}
+td.dataS { padding: 0px 1px 0px 1px;background-color: #FC6;}
+
+.moyen { background-color: #FFD29F;text-align: center;font-weight: bold;}
+.moyenD { background-color: #FFD4A7;text-align: center;font-weight: bold;color: #777;}
+.moyenP { background-color: #B09EFF;text-align: center;font-weight: bold;}
+.moyenF { background-color: #B0FFA2;text-align: center;font-weight: bold;}
+
+/* Routing */
+div.ttop {position: fixed; top: 10px; right: 20px; padding: 0px; width: 300px; height: 25px; font-size: 20px; color: #EEE; border-width: 0px; margin: 0px; border-color: #000; border-style: inset; text-align: right; }
+div.tdate {text-align: right;position: fixed;top: 40px;right: 20px;padding: 0px;width: 300px;height: 15px;font-size: 10px;color: #EEE;border-width: 0px;margin: 0px;border-color: #000;border-style: inset;}

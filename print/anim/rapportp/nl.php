@@ -1,0 +1,63 @@
+<?php
+# Phrasebook des Contrats VIP
+$phrase[5] = "Exception2 cvba\rJachtlaan 195\r1040 Brussel";
+$phrase[6] = "HRB : 498 586\rBTW : BE 430.597.846";
+
+$phrase[7] = "Exception - Exception cvba\r\rJachtlaan 195\rBrussel - 1040";
+$phrase[8] = "\rBTW BE 430 597 846\rHCB 489 589";
+$phrase[9] = "www.exception2.be\r\rTel : 02 732.74.40\rFax : 02 732.79.38";
+
+$phrase[10] = "Verkoopsrapport";
+$phrase[11] = "!!! Dit document (volledig ingevuld) moet ons onmiddellijk na de aktie met de post worden opgestuurd  !!!";
+$phrase[12] = "!! De verkoopscijfers+kosten+kms moeten worden doorgegeven voor maandag 9u per fax of op het antwoordapparaat !!";
+$phrase[13] = "Gegevens animatrice";
+$phrase[14] = "Job nr : ";
+$phrase[15] = "Klant : ";
+$phrase[16] = "Plaats : ";
+$phrase[17] = "Naam animatrice : ";
+$phrase[18] = "Afgelegde kilometers : ";
+$phrase[19] = "Bedrag aankoop product * : ";
+$phrase[20] = "Datum : ";
+$phrase[21] = "Aanwezig : ";
+$phrase[22] = " van ";
+$phrase[23] = " tot ";
+$phrase[24] = " en ";
+$phrase[25] = "Product";
+$phrase[26] = "Prijs";
+$phrase[27] = "Stock begin";
+$phrase[28] = "Stock einde";
+$phrase[29] = "Verkocht";
+$phrase[30] = "Rupt";
+$phrase[31] = "Degustatie";
+$phrase[32] = "O";
+$phrase[33] = "Materiaal ter beschikking";
+$phrase[34] = "Stand : ";
+$phrase[35] = "Bekers : ";
+$phrase[36] = "Oven : ";
+$phrase[37] = "Lepels : ";
+$phrase[38] = "Andere : ";
+$phrase[39] = "Levering : ";
+$phrase[40] = "Servietten : ";
+$phrase[41] = "Tandenstokers : ";
+$phrase[42] = "Bakplaat : ";
+$phrase[43] = "Stand : ";
+$phrase[44] = "Opmerking(en) animatrice : ";
+$phrase[45] = "Standplaats : ";
+$phrase[46] = "Andere concurrerende\ranimaties : ";
+$phrase[47] = "Commentaar : ";
+$phrase[48] = " +";
+$phrase[49] = " +/-";
+$phrase[50] = " -";
+$phrase[51] = "Nee";
+$phrase[52] = "Ja : ";
+$phrase[53] = "Nee";
+$phrase[54] = "---------------------";
+$phrase[55] = "Opmerking(en) winkel";
+$phrase[56] = "Stempel winkel : ";
+$phrase[57] = "Opmerkingen verantwoordelijke van de winkel :";
+$phrase[58] = "Handtekening van de verantwoordelijke : ";
+$phrase[59] = "* De kosten zullen enkel terugbetaald worden mits voorlegging van het originele kasticket, vastgehecht aan het rapport.";
+$phrase[60] = "---";
+$phrase[61] = "Opdracht nr : ";
+$phrase[67] = "Week : ";
+?>

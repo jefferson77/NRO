@@ -1,0 +1,601 @@
+body
+{
+	font: normal 10px "Trebuchet MS", Verdana, Arial, Helvetica, Geneva, Swiss, SunSans-Regular, Sans-Serif;
+	background-color: #E2E3DD;
+	color: #527184;
+	margin: 0px;
+}
+
+A
+{
+	color: black;
+	text-decoration: underline;
+}
+
+a.tab {
+	text-decoration: underline;
+}
+
+
+A.creme
+{
+	color: #FFC;
+	font-weight: bold;
+}
+
+A.creme2
+{
+	color: #FFC;
+}
+
+A:visited { text-decoration: underline; }
+
+A:hover
+{
+	text-decoration: none;
+}
+
+A:active { text-decoration: none; }
+
+/* Autocomplete text inputs */
+input.autocomp {
+	background: #FFF url("../illus/lightningBW.png") no-repeat center right;
+}
+input
+{
+	font-family: Arial,Helvetica,Geneva,Swiss,SunSans-Regular,Sans-Serif;
+	font-size: 10px;
+	border-color: #527184;
+	border-style: solid;
+	border-width: 1px;
+	padding: 1px;
+	vertical-align:middle;
+}
+
+input[type="submit"]
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+input:disabled {
+	color: #C6C6C6;
+	border-color: #C6C6C6;
+}
+
+
+input[type="checkbox"]
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+input[type="radio"]
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+form
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+textarea
+{
+	font-family: Arial,Helvetica,Geneva,Swiss,SunSans-Regular,Sans-Serif;
+	font-size: 10px;
+	border-color: #527184;
+	border-style: solid;
+	border-width: 1px;
+	padding: 1px;
+}
+
+select
+{
+	font-family: Arial,Helvetica,Geneva,Swiss,SunSans-Regular,Sans-Serif;
+	font-size: 10px;
+	border-color: #527184;
+	border-style: solid;
+	border-width: 1px;
+	padding: 1px;
+}
+
+
+input.mini
+{
+	font-family: Arial,Helvetica,Geneva,Swiss,SunSans-Regular,Sans-Serif;
+	font-size: 9px;
+	border-color: #527184;
+	border-style: solid;
+	border-width: 1px;
+	padding: 1px;
+	vertical-align:middle;
+}
+select.mini
+{
+	font-family: Arial,Helvetica,Geneva,Swiss,SunSans-Regular,Sans-Serif;
+	font-size: 9px;
+	border-color: #527184;
+	border-style: solid;
+	border-width: 1px;
+	padding: 0px;
+}
+
+
+td.red
+{
+	color: #F60;
+}
+
+td.fond
+{
+	background-color: #C6D7DF;
+	border-width: 0px;
+	border-style: solid;
+	text-align: center;
+	border-color: #8CAAB5;
+}
+
+table.vip
+{
+	background-color: #8CAAB5;
+	color: #FFF;
+	margin: auto;
+}
+
+th.vip
+{
+	font-size: 14px;
+	background-color: #527184;
+	color: #FFF;
+}
+th.vip2
+{
+	font-size: 10px;
+	background-color: #527184;
+	color: #FFF;
+}
+
+td.vip
+{
+	border-bottom: #527184;
+	border-width: 0 0 1px 0;
+	border-style: none none dotted none;
+	text-align: center;
+}
+
+table.anim
+{
+	background-color: #8CAAB5;
+	color: black;
+	margin: auto;
+}
+
+
+
+th.anim
+{
+	font-size: 14px;
+	background-color: #527184;
+}
+
+td.anim
+{
+	border-bottom: #527184;
+	border-width: 0 0 1px 0;
+	border-style: none none dotted none;
+	text-align: center;
+}
+
+table.merch
+{
+	background-color: #8CAAB5;
+	color: #FFF;
+	margin: auto;
+}
+
+th.merch
+{
+	font-size: 14px;
+	background-color: #527184;
+}
+
+td.merch
+{
+	border-bottom: #527184;
+	border-width: 0 0 1px 0;
+	border-style: none none dotted none;
+	text-align: center;
+}
+table.white
+{
+	background-color: #ffffff;
+	color: #000000;
+}
+
+td.white
+{
+	border-bottom: #527184;
+	background-color: #ffffff;
+	border-width: 0 0 1px 0;
+	border-style: none none dotted none;
+}
+
+table.standard
+{
+	background-color: #8CAAB5;
+	color: black;
+	margin: auto;
+}
+
+th.standard
+{
+	font-size: 14px;
+	background-color: #527184;
+}
+
+td.standard, tr.standard
+{
+	border-bottom: #527184;
+	border-width: 0 0 1px 0;
+	border-style: none none dotted none;
+}
+td.alt, tr.alt, th.alt
+{
+	background-color: #527184;
+}
+
+td.navbar
+{
+	background-image: url("../illus/navbar.gif");
+	background-repeat: repeat-x;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+}
+
+td.navbar a
+{
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: normal;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+td.navbar a:hover { color: #800040; }
+
+td.navbarmid
+{
+	background-image: url("../illus/navbarmid.gif");
+	background-repeat: no-repeat;
+	width: 3px;
+}
+
+td.navbarleft
+{
+	background-image: url("../illus/navbarleft.gif");
+	background-repeat: no-repeat;
+	width: 2px;
+}
+
+td.navbarright
+{
+	background-image: url("../illus/navbarright.gif");
+	background-repeat: no-repeat;
+	width: 2px;
+}
+
+td.standarder
+{
+	border-bottom: #527184;
+	border-width: 0 0 1px 0;
+	border-style: none none dotted none;
+}
+
+table.planning
+{
+	background-color: #8CAAB5;
+	color: black;
+}
+
+th.planning, thead.planning
+{
+	font-size: 10px;
+	background-color: #527184;
+	border-width: 0 0 1px 0;
+	border-style: none none dotted none;
+}
+
+td.planning
+		{
+	font-size: 10px;
+	border-width: 0 0 1px 0;
+	border-style: none none dotted none;
+}
+
+td.planning2
+		{
+	font-size: 10px;
+	border-bottom: #527184;
+	background-color:#527184;
+	border-width: 0 0 1px 0;
+	border-style: none none dotted none;
+}
+
+th.space8
+{
+	font-size: 8px;
+	background-color: #C6D7DE;
+}
+
+th.space4
+{
+	font-size: 4px;
+}
+
+table.etiq
+{
+	background-color: #FFF;
+	color: black;
+}
+
+td.etiq
+{
+	background-color: #00427B;
+	color: #FFF;
+	font-weight: bold;
+	padding: 0px 0px 0px 4px;
+	width: 150px;
+}
+td.etiq2
+{
+	background-color: #00427B;
+	color: #FFF;
+	font-weight: bold;
+	padding: 1px 1px 1px 4px;
+}
+td.etiq3
+{
+	background-color: #336699;
+	color: #FFF;
+	font-weight: bold;
+	padding: 1px 1px 1px 4px;
+}
+
+td.contenu
+{
+	background-color: #CCDAE7;
+}
+
+
+div.infosection
+{
+	font-size: 18px;
+	font-variant: small-caps;
+	font-weight: bold;
+	border-color: black black white black;
+	border-width: 0 0 2px 0;
+	border-style: solid;
+	margin: 2px 10px 3px 2px;
+	padding: 0px;
+}
+
+div.infosection2
+{
+	font-size: 18px;
+	font-variant: small-caps;
+	font-weight: bold;
+	border-color: black black white black;
+	border-width: 0 0 0 0;
+	border-style: solid;
+	margin: 2px 10px 3px 2px;
+	padding: 0px;
+}
+
+fieldset
+{
+	padding: 5px;
+	border-color: #FFF;
+	border-width: 1px;
+	border-style: solid;
+	margin: 3px;
+}
+
+label
+{
+	float: left;
+	clear: both;
+	width: 6em;
+	height: 12px;
+	text-align: right;
+	display: block;
+	background-color: #7E99A3;
+	color: #000;
+	margin: 0px;
+	padding: 1px 10px 1px 1px;
+	font-size: 10px;
+	border-width: 3px;
+}
+
+legend {
+	font-weight: bold;
+	color: #FFF;
+}
+
+fieldset.gray
+{
+	padding: 5px;
+	border-color: #777777;
+	border-width: 1px;
+	border-style: solid;
+	margin: 3px;
+}
+legend.gray {
+	font-weight: bold;
+	color: #777777;
+}
+
+fieldset.blue
+{
+	padding: 5px;
+	border-color: #00427B;
+	border-width: 1px;
+	border-style: solid;
+	margin: 3px;
+}
+legend.blue {
+	font-weight: bold;
+	color: #00427B;
+}
+
+input.home
+{
+	background-image: url("../illus/bk-bouton.gif");
+	font-size: 15px;
+	text-decoration: underline;
+	text-align: center;
+	font-weight: bold;
+	background-repeat: repeat;
+	background-attachment: fixed;
+	background-position: center top;
+}
+
+/* Payements Groupe-S */
+
+table.paymenu
+{
+	background-color: #FFF;
+	color: #000;
+	text-align: center;
+	vertical-align: middle;
+	text-transform: inherit;
+	font-weight: bold;
+}
+
+table.paymenu th
+{
+	background-color: #1D5987;
+	color: #FFF;
+	font-size: 14px;
+	text-transform: inherit;
+	letter-spacing: 2px;
+}
+
+table.paymenu td {
+	background-color: #FFF;
+	font-size: 10px;
+	color: #AAA;
+	height: 23px;
+}
+
+table.paymenu td a
+{
+	text-decoration: none;
+	background-color: #D0E5F5;
+	width: 100%;
+	padding: 5px 0px;
+	display: block;
+	color: #1D5987;
+}
+
+table.paymenu td a:hover
+{
+	background-color: #FF7F00;
+	color: #FFF;
+}
+
+table.paymenu td.actif a, table.paymenu td.actif a:hover { background-color: #4674FF; }
+
+td.black
+{
+	color: #000000;
+}
+
+td.lid
+{
+	background-color: #6D858D;
+	text-align: center;
+	color: #DDD;
+}
+
+/*	Layout Boite   */
+.boite {
+	display: table-cell;
+	padding: 15px;
+	vertical-align: middle;
+}
+
+.boite label {
+	display: block;
+	float: left;
+	clear: both;
+	width: 6em;
+	height: 14px;
+	margin: 2px 0px;
+	text-align: right;
+	color: #000;
+	padding: 1px 5px 1px 1px;
+	font-size: 10px;
+}
+
+.boite input[type="text"] {
+	height: 12px;
+	margin: 2px 0px;
+}
+
+.boite input[type="radio"] {
+	margin: 4px 0px 4px 5px;
+}
+
+.boite select {
+	margin: 2px 0px;
+	padding: 0px;
+}
+
+td.etiq
+{
+	text-align: right;
+	background-color: #819DA7;
+	font-size: 11px;
+}
+
+input.droite
+{
+	text-align: right;
+}
+
+/*	Boutons Submit   */
+input.btn {
+	background: transparent no-repeat center center;
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	color: transparent;
+}
+
+input.tick_circle  	{ background: url("../nro/illus/tick_circle.png");  	width: 16px;	height: 16px; }
+input.minus_circle 	{ background: url("../nro/illus/minus_circle.png"); 	width: 16px;	height: 16px; }
+input.plus_circle  	{ background: url("../nro/illus/plus_circle.png");  	width: 16px;	height: 16px; }
+input.printer_48   	{ background: url("../illus/printer_48.gif");       	width: 48px;	height: 48px; }
+input.printer      	{ background: url("../illus/printer.png");          	width: 16px;	height: 16px; }
+input.bin_closed   	{ background: url("../illus/bin_closed.png");       	width: 16px;	height: 16px; }
+input.redtrash     	{ background: url("../illus/redtrash.gif");         	width: 20px;	height: 20px; }
+input.phone        	{ background: url("../illus/phone.png");            	width: 16px;	height: 16px; }
+input.afficher     	{ background: url("../illus/afficher.gif");         	width: 13px;	height: 15px; }
+input.add     	   	{ background: url("../illus/add.png");         	   		width: 16px;	height: 16px; }
+input.duplic       	{ background: url("../illus/duplic.png");         		width: 16px;	height: 16px; }
+input.delete       	{ background: url("../illus/delete.png");         		width: 16px;	height: 16px; }
+input.stock_stop-16	{ background: url("../illus/stock_stop-16.png");    	width: 16px;	height: 16px; }
+input.add_casting	{ background: url("../illus/add_casting.gif");    		width: 20px;	height: 14px; }
+input.accept		{ background: url("../illus/accept.png");    			width: 16px;	height: 16px; }
+input.send			{ background: url("../illus/send.png");    				width: 15px;	height: 13px; }
+input.printr01		{ background: url("../illus/printr01.gif");				width: 32px;	height: 32px; }
+input.duplic-mission { background: url("../illus/duplic-mission.gif");		width: 20px;	height: 20px; }
+
+
+
+
