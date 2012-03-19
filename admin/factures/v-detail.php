@@ -11,17 +11,20 @@ if (($_SESSION['idagent'] != '20') and ($_SESSION['roger'] != 'devel')) $frozen 
 if ($fac->horizetat == 'Y') {
 	$frozen = 'disabled';
 	$comptawarning = '<tr><td colspan="4" style="background-color: #F00; color: #FFF;font-weight: bold; text-align: center;padding: 5px; ">Cette facture a déjà été importée en compta, elle n\'est donc plus modifiable</td></tr>';
-} 
+} else {
+	$frozen = '';
+	$comptawarning = '';
+}
 
 ### Infos Client
 echo '<form action="?act=detail" method="post">
 <table border="0" width="95%" cellspacing="1" cellpadding="1" align="center" bgcolor="#003333">
-	'.(string)$comptawarning.'
+	'.$comptawarning.'
 	<tr>
 		<td bgcolor="#006666"><b>FAC</b>: '.$fac->leyear.'-'.$fac->id.'</td>
 		<td bgcolor="#006666"><b>CLIENT</b>: <input type="text" name="idclient" value="'.$fac->idclient.'" size="5" '.$frozen.'>'.$fac->societe;
 		if (!empty($fac->idclient)) {
-		
+
 			## Liste des Officers
 			echo '<select name="idcofficer" '.$frozen.'>';
 			foreach ($officers as $row) echo '<option value="'.$row['idcofficer'].'"'.(($fac->nom == $row['oprenom'].' '.$row['onom'])?' selected':'').'>'.$row['oprenom'].' '.$row['onom'].'</option>';
@@ -29,7 +32,7 @@ echo '<form action="?act=detail" method="post">
 		}
 		echo '</td>
 		<td bgcolor="#006666"><b>DATE</b>: <input type="text" name="datefac" value="'.fdate($fac->datefac).'" size="11" '.$frozen.'></td>
-		<td bgcolor="#006666"><b>SECTEUR</b>: '; 
+		<td bgcolor="#006666"><b>SECTEUR</b>: ';
 		if($fac->modefac == 'A') {
 			echo $secteurs[$fac->horizsecteur];
 		} else {
@@ -49,7 +52,7 @@ echo '<form action="?act=detail" method="post">
 		echo '</select></td>
 	</tr>
 	<tr>
-		 <td colspan="3"><b>Mode de facturation </b>: 
+		 <td colspan="3"><b>Mode de facturation </b>:
 			<input type="radio" name="modefac" value="A" '; if ($fac->modefac == 'A') { echo 'checked';} echo' '.$frozen.'> Automatique &nbsp; &nbsp;
 			<input type="radio" name="modefac" value="M" '; if ($fac->modefac == 'M') { echo 'checked';} echo' '.$frozen.'> Manuel
 		</td>
@@ -62,8 +65,8 @@ echo '<form action="?act=detail" method="post">
 echo '<table border="0" width="95%" cellspacing="1" cellpadding="1" align="center" bgcolor="#003333">
 <form action="?act=detail" method="post">';
 	switch ($fac->horizsecteur) {
-	
-		case "1": 
+
+		case "1":
 			echo '
 			<tr>
 				<td bgcolor="#006666"><b>- de 6</b>: <input type="text" name="tarif01" value="'.fnbr($fac->Tarif['high']).'" size="5" '.$frozen.'> &euro;</td>
@@ -74,20 +77,20 @@ echo '<table border="0" width="95%" cellspacing="1" cellpadding="1" align="cente
 			<tr>
 				<td bgcolor="#006666"><b>150%</b>: <input type="text" name="tarif05" value="'.fnbr($fac->Tarif['150']).'" size="5" '.$frozen.'> &euro;</td>
 				<td bgcolor="#006666"><b>Forfait</b>: <input type="text" name="tarif06" value="'.fnbr($fac->Tarif['forfait']).'" size="5" '.$frozen.'> &euro;</td>
-				<td bgcolor="#006666"><b>Forfait</b>: 
+				<td bgcolor="#006666"><b>Forfait</b>:
 					<input type="radio" name="hforfait" value="2" '.(($fac->Tarif['hforfait'] == 2)?' checked':'').' '.$frozen.'> Oui
 					<input type="radio" name="hforfait" value="1" '.(($fac->Tarif['hforfait'] != 2)?' checked':'').' '.$frozen.'> Non
 				</td>
-				<td bgcolor="#006666"><b>Dimona</b>: 
+				<td bgcolor="#006666"><b>Dimona</b>:
 					<input type="radio" name="fraisdimona" value="oui" '.(($fac->Tarif['fraisdimona'] == 'oui')?' checked':'').' '.$frozen.'> Oui
 					<input type="radio" name="fraisdimona" value="non" '.(($fac->Tarif['fraisdimona'] != 'oui')?' checked':'').' '.$frozen.'> Non
 				</td>
 			</tr>';
 			$colspan="4";
-			
+
 		break;
-	
-		case "2": 
+
+		case "2":
 			echo '
 			<tr>
 				<td bgcolor="#006666"><b>Heures</b>: <input type="text" name="tarif01" value="'.fnbr($fac->Tarif['heure']).'" size="5" '.$frozen.'> &euro;</td>
@@ -95,40 +98,40 @@ echo '<table border="0" width="95%" cellspacing="1" cellpadding="1" align="cente
 				<td bgcolor="#006666"><b>Forfait</b>: <input type="text" name="tarif03" value="'.fnbr($fac->Tarif['forf']).'" size="5" '.$frozen.'> &euro;</td>
 				<td bgcolor="#006666"><b>Km Forf</b>: <input type="text" name="tarif04" value="'.fnbr($fac->Tarif['forfkm']).'" size="5" '.$frozen.'> Km</td>
 				<td bgcolor="#006666"><b>Stand</b>: <input type="text" name="tarif05" value="'.fnbr($fac->Tarif['stand']).'" size="5" '.$frozen.'> &euro;</td>
-				<td bgcolor="#006666"><b>Forfait</b>: 
+				<td bgcolor="#006666"><b>Forfait</b>:
 					<input type="radio" name="hforfait" value="2" '.(($fac->Tarif['hforfait'] == 2)?' checked':'').' '.$frozen.'> Oui
 					<input type="radio" name="hforfait" value="1" '.(($fac->Tarif['hforfait'] != 2)?' checked':'').' '.$frozen.'> Non
 				</td>
-				<td bgcolor="#006666"><b>Dimona</b>: 
+				<td bgcolor="#006666"><b>Dimona</b>:
 					<input type="radio" name="fraisdimona" value="oui" '.(($fac->Tarif['fraisdimona'] == 'oui')?' checked':'').' '.$frozen.'> Oui
 					<input type="radio" name="fraisdimona" value="non" '.(($fac->Tarif['fraisdimona'] != 'oui')?' checked':'').' '.$frozen.'> Non
 				</td>
 			</tr>';
 			$colspan="7";
 		break;
-		
-		case "3": 
-		case "4": 
+
+		case "3":
+		case "4":
 			echo '
 			<tr>
 				<td bgcolor="#006666"><b>Heures</b>: <input type="text" name="tarif01" value="'.fnbr($fac->Tarif['heure']).'" size="5" '.$frozen.'> &euro;</td>
 				<td bgcolor="#006666"><b>Km</b>: <input type="text" name="tarif02" value="'.fnbr($fac->Tarif['km']).'" size="5" '.$frozen.'> &euro;</td>
 				<td bgcolor="#006666"><b>150 %</b>: <input type="text" name="tarif03" value="'.fnbr($fac->Tarif['150']).'" size="5" '.$frozen.'> &euro;</td>
-				<td bgcolor="#006666"><b>Forfait</b>: 
+				<td bgcolor="#006666"><b>Forfait</b>:
 					<input type="radio" name="hforfait" value="2" '.(($fac->Tarif['hforfait'] == 2)?' checked':'').' '.$frozen.'> Oui
 					<input type="radio" name="hforfait" value="1" '.(($fac->Tarif['hforfait'] != 2)?' checked':'').' '.$frozen.'> Non
 				</td>
-				<td bgcolor="#006666"><b>Dimona</b>: 
+				<td bgcolor="#006666"><b>Dimona</b>:
 					<input type="radio" name="fraisdimona" value="oui" '.(($fac->Tarif['fraisdimona'] == 'oui')?' checked':'').' '.$frozen.'> Oui
 					<input type="radio" name="fraisdimona" value="non" '.(($fac->Tarif['fraisdimona'] != 'oui')?' checked':'').' '.$frozen.'> Non
 				</td>
 			</tr>';
-			
+
 			$colspan="5";
 		break;
 }
 
-		
+
 echo '
 	<tr>
 		<td colspan="'.$colspan.'" bgcolor="#006666" align="center"><input type="hidden" name="idfac" value="'.$fac->id.'" '.$frozen.'><input type="submit" name="dact" value="Tarifs" '.$frozen.'></td>
@@ -137,7 +140,7 @@ echo '
 </table><br>';
 ?>
 
-<?php if ($fac->modefac == 'M') { 
+<?php if ($fac->modefac == 'M') {
 
 ########################################################################################################################################################
 ###########  Factures Manuelles  ########################################################################################################
@@ -160,14 +163,14 @@ if (!empty($_REQUEST['idfac'])) {
 		LEFT JOIN postescompta gpc ON pc.nom = gpc.nom AND gpc.secteur = ".$fac->horizsecteur."
 	SET d.poste = gpc.poste
 	WHERE d.idfac = ".$_REQUEST['idfac']);
-	
+
 	## Get details
 	$facdetails = $DB->getArray("SELECT
-			d.*, 
-			pc.secteur 
-		FROM facmanuel d 
-			LEFT JOIN postescompta pc ON d.poste = pc.poste 
-		WHERE d.idfac = ".$_REQUEST['idfac']." 
+			d.*,
+			pc.secteur
+		FROM facmanuel d
+			LEFT JOIN postescompta pc ON d.poste = pc.poste
+		WHERE d.idfac = ".$_REQUEST['idfac']."
 		ORDER BY d.poste ASC");
 }
 
@@ -178,16 +181,16 @@ if (count($facdetails) >= 1) {
 	foreach ($facdetails as $row) {
 ?>
 		<form action="?act=detail" method="post">
-			<input type="hidden" name="idfac" value="<?php echo $_REQUEST['idfac'];?>"> 
+			<input type="hidden" name="idfac" value="<?php echo $_REQUEST['idfac'];?>">
 			<tr>
 				<td class="standard">
-					<?php 
+					<?php
 					echo '<select name="poste" '.$frozen.'>';
 
 					foreach ($Postes as $poste) {
 						echo '<option value="'.$poste['poste'].'"'.(($row['poste'] == $poste['poste'])?'selected':'').'>'.$poste['intituleFR'].'</option>';
 					}
-					
+
 					echo '</select>';
 					?>
 				</td>
@@ -195,7 +198,7 @@ if (count($facdetails) >= 1) {
 				<td class="standard"><input type="text" size="100" name="description" value="<?php echo $row['description']; ?>" <?php echo $frozen; ?>></td>
 				<td class="standard"><input type="text" size="10" name="montant" value="<?php echo feuro($row['montant']); ?>" <?php echo $frozen; ?>></td>
 				<td class="standard">
-					<input type="hidden" name="idman" value="<?php echo $row['idman'];?>"> 
+					<input type="hidden" name="idman" value="<?php echo $row['idman'];?>">
 					<input type="submit" name="dact" value="M"<?php echo $frozen; ?>>
 					<input type="submit" name="dact" value="S"<?php echo $frozen; ?>>
 				</td>
@@ -207,10 +210,10 @@ if (count($facdetails) >= 1) {
 if (($fac->horizetat != 'Y') and ($frozen != 'disabled')) {
  ?>
 	<form action="?act=detail" method="post">
-		<input type="hidden" name="idfac" value="<?php echo $_REQUEST['idfac'];?>"> 
+		<input type="hidden" name="idfac" value="<?php echo $_REQUEST['idfac'];?>">
 		<tr id="ajout" bgcolor="#003333">
 			<td class="standard">
-				<?php 
+				<?php
 
 				echo '<select name="poste"><option value="" selected> </option>';
 
@@ -267,11 +270,11 @@ if (($fac->horizetat != 'Y') and ($frozen != 'disabled')) {
 			<th class="standard">Detail</th>
 			<th class="standard">Montant</th>
 		</tr>
-<?php 
+<?php
 
 switch ($fac->horizsecteur) {
 	#### VIP ####
-	case "1": 
+	case "1":
 		echo '
 		<tr>
 			<td class="standard">Prestations</td>
@@ -296,20 +299,20 @@ switch ($fac->horizsecteur) {
 ';
 	break;
 	#### ANIM ####
-	case "2": 
+	case "2":
 		/*
 			TODO : Detail des facs ANIM
 		*/
 	break;
 	#### MERCH ####
-	case "3": 
-	case "4": 
+	case "3":
+	case "4":
 		/*
 			TODO : Detail des facs MERCH
 		*/
 	break;
 }
-?>		
+?>
 		<tr id="ajout" align="right">
 			<td></td>
 			<td>HTVA</td>

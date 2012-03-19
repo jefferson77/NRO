@@ -9,7 +9,7 @@ if (!empty($_REQUEST['idclient'])) {
 	}
 }
 
-if (($vipassign > 0) or ($animassign > 0) or ($merchassign > 0)) echo 'Regroupement effectu&eacute; de '.$_REQUEST['idcofficer'].' vers '.$idcofficercible.' :<br>Vip : '.$vipassign.' - Anim : '.$animassign.' - Merch : '.$merchassign.'<br>';
+if ((@$vipassign + @$animassign + @$merchassign) > 0) echo 'Regroupement effectu&eacute; de '.$_REQUEST['idcofficer'].' vers '.$idcofficercible.' :<br>Vip : '.$vipassign.' - Anim : '.$animassign.' - Merch : '.$merchassign.'<br>';
 ?>
 <table class="sortable-onload-0r rowstyle-alt no-arrow" border="0" width="90%" cellspacing="1" align="center">
 	<thead>
@@ -38,14 +38,14 @@ if (($vipassign > 0) or ($animassign > 0) or ($merchassign > 0)) echo 'Regroupem
 			<select name="langue">
 			<?php
 			echo '
-			<option value="FR"'.((($row['langue'] == '') OR ($row['langue'] == 'FR'))?' selected':'').'>FR</option>
+			<option value="FR"'.((($row['langue'] == '') || ($row['langue'] == 'FR'))?' selected':'').'>FR</option>
 			<option value="NL"'.(($row['langue'] == 'NL')?' selected':'').'>NL</option>';?>
 			</select>
 		</td>
 		<td>
 			<select name="qualite">
 			<?php echo '
-			<option value="Monsieur"'.((($row['qualite'] == '') OR ($row['qualite'] == 'Monsieur') OR ($row['qualite'] == 'Mr'))?' selected':'').'>Mr</option>
+			<option value="Monsieur"'.((($row['qualite'] == '') || ($row['qualite'] == 'Monsieur') || ($row['qualite'] == 'Mr'))?' selected':'').'>Mr</option>
 			<option value="Madame"'.(($row['qualite'] == 'Madame')?' selected':'').'>Mme</option>
 			<option value="Mlle"'.(($row['qualite'] == 'Mlle')?' selected':'').'>Mlle</option>';
 			?>
@@ -60,7 +60,7 @@ if (($vipassign > 0) or ($animassign > 0) or ($merchassign > 0)) echo 'Regroupem
 		<td><input type="text" size="25" name="email" value="<?php echo $row['email']; ?>" id="email<?php echo $row['idcofficer'] ?>" onkeyup="disableDocPrefRadio(<?php echo $row['idcofficer'] ?>);"></td>
 		<td>
 			<input type="radio" name="docpref" value="email" id="docprefEmail<?php echo $row['idcofficer'] ?>"
-				<?php if($row['docpref'] == 'email' or empty($row['docpref'])) 	echo "checked";  ?>>
+				<?php if($row['docpref'] == 'email' || empty($row['docpref'])) 	echo "checked";  ?>>
 			</input>
 		</td>
 		<td>
@@ -91,14 +91,14 @@ if (($vipassign > 0) or ($animassign > 0) or ($merchassign > 0)) echo 'Regroupem
 			<td>
 				<select name="langue">
 				<?php echo '
-					<option value="FR"'.(((isset($infos['langue'])) OR ($infos['langue'] == 'FR'))?' selected':'').'>FR</option>
+					<option value="FR"'.(((isset($infos['langue'])) || ($infos['langue'] == 'FR'))?' selected':'').'>FR</option>
 					<option value="NL"'.(($infos['langue'] == 'NL')?' selected':'').'>NL</option>'; ?>
 				</select>
 			</td>
 			<td>
 				<select name="qualite">
 				<?php echo '
-					<option value="Monsieur"'.(((isset($infos['qualite'])) OR ($infos['qualite'] == 'Monsieur'))?' selected':'').'>Mr</option>
+					<option value="Monsieur"'.(((isset($infos['qualite'])) || ($infos['qualite'] == 'Monsieur'))?' selected':'').'>Mr</option>
 					<option value="Madame"'.(($infos['qualite'] == 'Madame')?' selected':'').'>Mme</option>
 					<option value="Mlle"'.(($infos['qualite'] == 'Mlle')?' selected':'').'>Mlle</option>'; ?>
 				</select>

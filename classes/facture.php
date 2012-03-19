@@ -14,6 +14,7 @@ function facdate() {
 }
 
 function rubriqueTVA ($astva, $tva, $pays, $kind) {
+
 	$rubhortva = 0;
 	## si étranger sans num de TVA rentré
 	switch ($astva) {
@@ -64,78 +65,78 @@ class facture
 	# Config Values
 
 		## défini dans la recherche fa c
-	var $id = '';
-	var $idclient = '';
-	var $frdate = '';
-	var $langue = '';
-	var $societe = '';
-	var $adresse = '';
-	var $leyear = '';
-	var $factu = '';
-	var $mode = '';
+	var $id            = '';
+	var $idclient      = '';
+	var $frdate        = '';
+	var $langue        = '';
+	var $societe       = '';
+	var $adresse       = '';
+	var $leyear        = '';
+	var $factu         = '';
+	var $mode          = '';
 
-		## VIP / Anim / Merch
-	var $idcofficer = '';
-	var $DetHeure = '';
+	## VIP / Anim / Merch
+	var $idcofficer    = '';
+	var $DetHeure      = '';
 
-		## VIP
-	var $idjob = '';
+	## VIP
+	var $idjob         = '';
 
-		## Post
-	var $nom = '';
-	var $dept = '';
-	var $qual = '';
+	## Post
+	var $nom           = '';
+	var $dept          = '';
+	var $qual          = '';
 
-	var $horizfile = '';
-	var $horizsecteur = '';
-	var $CodeHoriz = '';
-	var $HorizDate = '';
+	var $horizfile     = '';
+	var $horizsecteur  = '';
+	var $CodeHoriz     = '';
+	var $HorizDate     = '';
 
-	var $Detail = array();
+	var $Detail        = array();
 
-	var $DetFKm = '';
-	var $DetHhigh = '';
-	var $DetHlow = '';
-	var $DetHnight = '';
-	var $DetHspec = '';
-	var $DetKm = '';
+	var $DetFKm        = '';
+	var $DetHhigh      = '';
+	var $DetHlow       = '';
+	var $DetHnight     = '';
+	var $DetHspec      = '';
+	var $DetKm         = '';
 
-	var $ftva = '';
-	var $intitule = '';
+	var $ftva          = '';
+	var $intitule      = '';
 
-	var $MontDepl = '';
-	var $MontFrais = '';
-	var $MontDimona = 0;
-	var $HeuresDimona = 0;
+	var $MontDepl      = '';
+	var $MontFrais     = '';
+	var $MontDimona    = 0;
+	var $HeuresDimona  = 0;
 	var $MontLivraison = '';
-	var $MontHTVA = '';
-	var $MontLoc = '';
-	var $MontPrest = '';
-	var $MontTTC = '';
-	var $MontTVA = '';
+	var $MontHTVA      = '';
+	var $MontLoc       = '';
+	var $MontPrest     = '';
+	var $MontTTC       = '';
+	var $MontTVA       = '';
 
 	var $ForfNbr;
 
-	var $nomagent = '';
-	var $notefrais = '';
-	var $noteloca = '';
-	var $pays = '';
-	var $agent = '';
-	var $reference = '';
-	var $boncommande = '';
+	var $nomagent      = '';
+	var $notefrais     = '';
+	var $noteloca      = '';
+	var $pays          = '';
+	var $agent         = '';
+	var $reference     = '';
+	var $boncommande   = '';
 
-	var $Tarif = array();
-	var $CompteHoriz = array();
+	var $Tarif         = array();
+	var $CompteHoriz   = array();
 
-	var $kind = '';
-	var $modefac = '';
+	var $kind          = '';
+	var $modefac       = '';
 
-	var $facbase = '';
-	var $facnum = '';
-	var $astva = '';
-	var $rubhortva = '';
+	var $facbase       = '';
+	var $facnum        = '';
+	var $astva         = '';
+	var $rubhortva     = '';
 
-	var $horizetat = '';
+	var $horizetat     = '';
 
 	function facture ($id, $kind = 'FAC') {
 
@@ -149,34 +150,34 @@ class facture
 		switch ($this->kind) {
 			case "FAC":
 				$this->facbase = 'facture';
-				$this->facnum = 'facnum';
-				$this->mode = 'FACTURE';
+				$this->facnum  = 'facnum';
+				$this->mode    = 'FACTURE';
 			break;
 
 			case "PREVI":
 				$this->facbase = 'tempfacturevip';
-				$this->facnum = 'facnumtemp';
+				$this->facnum  = 'facnumtemp';
 			break;
 
 			case "PREAN":
 				$this->facbase = 'tempfactureanim';
-				$this->facnum = 'facnumtemp';
-				$this->mode = 'PREFAC';
+				$this->facnum  = 'facnumtemp';
+				$this->mode    = 'PREFAC';
 			break;
 
 			case "PREME":
 				$this->facbase = 'tempfacturemerch';
-				$this->facnum = 'facnumtemp';
+				$this->facnum  = 'facnumtemp';
 			break;
 
 			case "TEST":
 				$this->facbase = 'facturetest';
-				$this->facnum = 'facnum';
+				$this->facnum  = 'facnum';
 			break;
 
 			case "NCV": # dénomination des notes de crédit dans Horizon
 				$this->facbase = 'credit';
-				$this->facnum = 'facnum';
+				$this->facnum  = 'facnum';
 			break;
 
 			case "OFFVI":
@@ -234,17 +235,17 @@ class facture
 			$this->modefac = 'A';
 		}
 
-		$this->astva = $infoa['astva'];
+		$this->astva     = $infoa['astva'];
 		$this->rubhortva = rubriqueTVA($this->astva, $infoa['tva'], $infoa['pays'], $this->kind);
 
 	# > #### Vérification de l'ID officer ############################################################
 		if ($infoa['idcofficer'] == 0) {
 			$idofficer = $this->updofficer($this->id, $infoa['secteur'], $this->modefac);
 		} else {
-			$this->nom = $infoa['oprenom']." ".$infoa['onom'];
-			$this->dept = $infoa['departement'];
+			$this->nom    = $infoa['oprenom']." ".$infoa['onom'];
+			$this->dept   = $infoa['departement'];
 			$this->langue = strtoupper($infoa['langue']);
-			$this->qual = $this->qualite ($infoa['qualite']);
+			$this->qual   = $this->qualite ($infoa['qualite']);
 		}
 	# < #### Vérification de l'ID officer ############################################################
 
@@ -272,13 +273,13 @@ class facture
 					`fraisdimona` = '".$infoa['fraisdimona']."'
 					WHERE `idfac` = '".$this->id."'"; ## VIP
 
-					$this->Tarif['high'] 	= $infoa['tvheure05'];
-					$this->Tarif['low'] 	= $infoa['tvheure6'];
-					$this->Tarif['night'] 	= $infoa['tvnight'];
-					$this->Tarif['150'] 	= $infoa['tv150'];
-					$this->Tarif['km'] 		= $infoa['tvkm'];
-					$this->Tarif['forfait'] = $infoa['tvforfait'];
-					$this->Tarif['hforfait'] = $fhforfait;
+					$this->Tarif['high']        = $infoa['tvheure05'];
+					$this->Tarif['low']         = $infoa['tvheure6'];
+					$this->Tarif['night']       = $infoa['tvnight'];
+					$this->Tarif['150']         = $infoa['tv150'];
+					$this->Tarif['km']          = $infoa['tvkm'];
+					$this->Tarif['forfait']     = $infoa['tvforfait'];
+					$this->Tarif['hforfait']    = $fhforfait;
 					$this->Tarif['fraisdimona'] = $infoa['fraisdimona'];
 				break;
 
@@ -296,12 +297,12 @@ class facture
 					`fraisdimona` = '".$infoa['fraisdimona']."'
 					WHERE `idfac` = '".$this->id."'"; ## ANIM
 
-					$this->Tarif['heure'] 	= $infoa['taheure'];
-					$this->Tarif['km'] 		= $infoa['takm'];
-					$this->Tarif['forf'] 	= $infoa['taforfait'];
-					$this->Tarif['forfkm'] 	= $infoa['taforfaitkm'];
-					$this->Tarif['stand'] 	= $infoa['tastand'];
-					$this->Tarif['hforfait'] = $infoa['hforfait'];
+					$this->Tarif['heure']       = $infoa['taheure'];
+					$this->Tarif['km']          = $infoa['takm'];
+					$this->Tarif['forf']        = $infoa['taforfait'];
+					$this->Tarif['forfkm']      = $infoa['taforfaitkm'];
+					$this->Tarif['stand']       = $infoa['tastand'];
+					$this->Tarif['hforfait']    = $infoa['hforfait'];
 					$this->Tarif['fraisdimona'] = $infoa['fraisdimona'];
 				break;
 
@@ -316,9 +317,9 @@ class facture
 					`fraisdimona` = '".$infoa['fraisdimona']."'
 					WHERE `idfac` = '".$this->id."'"; ## MERCH
 
-					$this->Tarif['heure'] 	= $infoa['tmheure'];
-					$this->Tarif['km'] 		= $infoa['tmkm'];
-					$this->Tarif['hforfait'] = $infoa['hforfait'];
+					$this->Tarif['heure']       = $infoa['tmheure'];
+					$this->Tarif['km']          = $infoa['tmkm'];
+					$this->Tarif['hforfait']    = $infoa['hforfait'];
 					$this->Tarif['fraisdimona'] = $infoa['fraisdimona'];
 				break;
 
@@ -333,32 +334,32 @@ class facture
 		} else {
 			switch ($infoa['secteur']) {
 				case "1": # VIP
-					$this->Tarif['high'] 	= $infoa['tarif01'];
-					$this->Tarif['low'] 	= $infoa['tarif02'];
-					$this->Tarif['night'] 	= $infoa['tarif03'];
-					$this->Tarif['km'] 		= $infoa['tarif04'];
-					$this->Tarif['150'] 	= $infoa['tarif05'];
-					$this->Tarif['forfait'] = $infoa['tarif06'];
-					$this->Tarif['hforfait'] = $infoa['fhforfait'];
+					$this->Tarif['high']        = $infoa['tarif01'];
+					$this->Tarif['low']         = $infoa['tarif02'];
+					$this->Tarif['night']       = $infoa['tarif03'];
+					$this->Tarif['km']          = $infoa['tarif04'];
+					$this->Tarif['150']         = $infoa['tarif05'];
+					$this->Tarif['forfait']     = $infoa['tarif06'];
+					$this->Tarif['hforfait']    = $infoa['fhforfait'];
 					$this->Tarif['fraisdimona'] = $infoa['ffraisdimona'];
 				break;
 
 				case "2": # ANIM
-					$this->Tarif['heure'] 	= $infoa['tarif01'];
-					$this->Tarif['km'] 		= $infoa['tarif02'];
-					$this->Tarif['forf'] 	= $infoa['tarif03'];
-					$this->Tarif['forfkm'] 	= $infoa['tarif04'];
-					$this->Tarif['stand'] 	= $infoa['tarif05'];
-					$this->Tarif['hforfait'] = $infoa['fhforfait'];
+					$this->Tarif['heure']       = $infoa['tarif01'];
+					$this->Tarif['km']          = $infoa['tarif02'];
+					$this->Tarif['forf']        = $infoa['tarif03'];
+					$this->Tarif['forfkm']      = $infoa['tarif04'];
+					$this->Tarif['stand']       = $infoa['tarif05'];
+					$this->Tarif['hforfait']    = $infoa['fhforfait'];
 					$this->Tarif['fraisdimona'] = $infoa['ffraisdimona'];
 				break;
 
 				case "3": # MERCH
 				case "4": # EAS
-					$this->Tarif['heure'] 	= $infoa['tarif01'];
-					$this->Tarif['km'] 		= $infoa['tarif02'];
-					$this->Tarif['150'] 	= $infoa['tarif03'];
-					$this->Tarif['hforfait'] = $infoa['fhforfait'];
+					$this->Tarif['heure']       = $infoa['tarif01'];
+					$this->Tarif['km']          = $infoa['tarif02'];
+					$this->Tarif['150']         = $infoa['tarif03'];
+					$this->Tarif['hforfait']    = $infoa['fhforfait'];
 					$this->Tarif['fraisdimona'] = $infoa['ffraisdimona'];
 				break;
 			}
@@ -369,14 +370,14 @@ class facture
 	# < #### Vérification des Tarifs Clients sur la facture ########################################################################################
 	################################################################################################################################################
 
-		$this->idclient = $infoa['idclient'];
-		$this->societe = $infoa['societe'];
-		$this->adresse = $infoa['adresse']."\r".$infoa['cp']." ".$infoa['ville'];
-		$this->ftva = $infoa['codetva']." ".$infoa['tva'];
+		$this->idclient  = $infoa['idclient'];
+		$this->societe   = $infoa['societe'];
+		$this->adresse   = $infoa['adresse']."\r".$infoa['cp']." ".$infoa['ville'];
+		$this->ftva      = $infoa['codetva']." ".$infoa['tva'];
 		$this->CodeHoriz = $infoa['codecompta'];
-		$this->pays = ($infoa['pays'] != 'Belgique')?$infoa['pays']:'';
+		$this->pays      = ($infoa['pays'] != 'Belgique')?$infoa['pays']:'';
 
-		$this->factu = $infoa['facturation'];
+		$this->factu     = $infoa['facturation'];
 
 	################### Date ########################
 		if ((!empty($infoa['datefac'])) and ($infoa['datefac'] != '0000-00-00')) {
@@ -385,8 +386,8 @@ class facture
 			$timestamp = strtotime("now");
 		}
 
-		$this->datefac = date("Y-m-d", $timestamp);
-		$this->leyear = date("Y", $timestamp);
+		$this->datefac   = date("Y-m-d", $timestamp);
+		$this->leyear    = date("Y", $timestamp);
 		$this->horizfile = date("Ym", $timestamp);
 		$this->HorizDate = date("Ymd", $timestamp);
 
@@ -453,51 +454,51 @@ class facture
 							}
 
 
-							$this->MontDepl += ($row['km'] * $this->Tarif['km']) + $row['fkm'];
+							$this->MontDepl     += ($row['km'] * $this->Tarif['km']) + $row['fkm'];
 
-							$this->MontUnif += $row['unif'] + $row['net'];
-							$this->MontLocation +=  + $row['loc1'] + $row['loc2'] ;
+							$this->MontUnif     += $row['unif'] + $row['net'];
+							$this->MontLocation += $row['loc1'] + $row['loc2'] ;
 
-							$this->MontCat += $row['cat'];
-							$this->MontDisp += $row['disp'];
-							$this->MontFr += $fich->MontNfrais;
-							$this->MontDimona += $fich->FraisDimona;
+							$this->MontCat      += $row['cat'];
+							$this->MontDisp     += $row['disp'];
+							$this->MontFr       += $fich->MontNfrais;
+							$this->MontDimona   += $fich->FraisDimona;
 							$this->HeuresDimona += $fich->HeuresDimona;
 
-							$this->DetHhigh += $fich->hhigh;
-							$this->DetHlow += $fich->hlow;
-							$this->DetHnight += $fich->hnight;
-							$this->DetHspec += $fich->hspec;
-							$this->DetH150 += $fich->h150;
-							$this->DetH200 += $row['h200'];
+							$this->DetHhigh     += $fich->hhigh;
+							$this->DetHlow      += $fich->hlow;
+							$this->DetHnight    += $fich->hnight;
+							$this->DetHspec     += $fich->hspec;
+							$this->DetH150      += $fich->h150;
+							$this->DetH200      += $row['h200'];
 
-							$this->DetKm += $row['km'];
-							$this->DetFKm += $row['fkm'];
+							$this->DetKm        += $row['km'];
+							$this->DetFKm       += $row['fkm'];
 						}
 
 						# Totaux Location
-						$this->MontUnif		= round($this->MontUnif, 2);
-						$this->MontLocation	= round($this->MontLocation, 2);
+						$this->MontUnif               = round($this->MontUnif, 2);
+						$this->MontLocation           = round($this->MontLocation, 2);
 
-						$this->MontLoc = $this->MontUnif + $this->MontLocation ;
+						$this->MontLoc                = $this->MontUnif + $this->MontLocation ;
 
 						# Totaux Frais
-						$this->MontCat	= round($this->MontCat, 2);
-						$this->MontDisp	= round($this->MontDisp, 2);
-						$this->MontFr	= round($this->MontFr, 2);
-						$this->MontDimona	= round($this->MontDimona, 2);
+						$this->MontCat                = round($this->MontCat, 2);
+						$this->MontDisp               = round($this->MontDisp, 2);
+						$this->MontFr                 = round($this->MontFr, 2);
+						$this->MontDimona             = round($this->MontDimona, 2);
 
-						$this->MontFrais = $this->MontCat + $this->MontDisp + $this->MontFr + $this->MontDimona ;
+						$this->MontFrais              = $this->MontCat + $this->MontDisp + $this->MontFr + $this->MontDimona ;
 
 						# Total HTVA
-						$this->MontPrest	= round($this->MontPrest, 2);
-						$this->MontDepl		= round($this->MontDepl, 2);
-						$this->MontLoc		= round($this->MontLoc, 2);
-						$this->MontFrais	= round($this->MontFrais, 2);
+						$this->MontPrest              = round($this->MontPrest, 2);
+						$this->MontDepl               = round($this->MontDepl, 2);
+						$this->MontLoc                = round($this->MontLoc, 2);
+						$this->MontFrais              = round($this->MontFrais, 2);
 
-						$this->MontHTVA = $this->MontPrest + $this->MontDepl + $this->MontLoc + $this->MontFrais;
+						$this->MontHTVA               = $this->MontPrest + $this->MontDepl + $this->MontLoc + $this->MontFrais;
 
-						$this->Detail['prestations'] = '';
+						$this->Detail['prestations']  = '';
 						$this->Detail['deplacements'] = '';
 
 						switch ($this->langue) {
@@ -819,17 +820,17 @@ class facture
 
 	 					unset($easdesc);
 
-						$this->MontPrest = $this->DetHeure * $this->Tarif['heure'];
-						$this->MontDepl = $this->DetKm * $this->Tarif['km'];
-						$this->MontDimona	= round($this->MontDimona, 2);
-						$this->MontFrais += $this->MontDimona;
+						$this->MontPrest  = $this->DetHeure * $this->Tarif['heure'];
+						$this->MontDepl   = $this->DetKm * $this->Tarif['km'];
+						$this->MontDimona = round($this->MontDimona, 2);
+						$this->MontFrais  += $this->MontDimona;
 
 						## Arondi
-						$this->MontPrest	= round($this->MontPrest, 2);
-						$this->MontDepl		= round($this->MontDepl, 2);
-						$this->MontFrais	= round($this->MontFrais, 2);
-						$this->MontDivers	= round($this->MontDivers, 2);
-						$this->MontLivraison	= round($this->MontLivraison, 2);
+						$this->MontPrest     = round($this->MontPrest, 2);
+						$this->MontDepl      = round($this->MontDepl, 2);
+						$this->MontFrais     = round($this->MontFrais, 2);
+						$this->MontDivers    = round($this->MontDivers, 2);
+						$this->MontLivraison = round($this->MontLivraison, 2);
 
 						$this->MontHTVA = $this->MontPrest + $this->MontDepl + $this->MontFrais + $this->MontDivers + $this->MontLivraison;
 
@@ -872,7 +873,7 @@ class facture
 
 				$detman = $DB->getArray("SELECT * FROM `facmanuel` WHERE `idfac` = '".$this->id."'");
 
-				$this->intitule = $infoa['intitule'];
+				$this->intitule    = $infoa['intitule'];
 				$this->boncommande = $infoa['po'];
 
 				$heurespostes = array(700100, 700110, 700120, 700130);
@@ -882,8 +883,8 @@ class facture
 
 					if (in_array($detm['poste'], $heurespostes)) $this->DetHeure += $detm['units'];
 
-					$this->CompteHoriz[$detm['poste']] += $detm['montant'];
-					$this->MontHTVA += $detm['montant'];
+					@$this->CompteHoriz[$detm['poste']] += $detm['montant'];
+					$this->MontHTVA                    += $detm['montant'];
 				}
 
 				## Infos Agent

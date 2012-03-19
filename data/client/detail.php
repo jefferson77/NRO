@@ -14,7 +14,7 @@ function cleannombre($nombre) {
 if ($infos['astva'] == '4') { ## si assujeti
 
 	switch ($infos['codetva']) {
-		
+
 			case "BE":
 			### Teste la validité
 				$tva = cleannombre($infos['tva']);
@@ -39,47 +39,47 @@ if ($infos['astva'] == '4') { ## si assujeti
 					$errtva = 'Doit etre sous la forme XXXX XXX XXX';
 				}
 			break;
-		
-			case "UK": 
+
+			case "UK":
 			break;
-			
-			case "FR": 
+
+			case "FR":
 			break;
-			
-			case "CZ": 
+
+			case "CZ":
 			break;
-			
-			case "LU": 
+
+			case "LU":
 			break;
-			
-			case "NL": 
+
+			case "NL":
 			break;
-			
-			case "ATU": 
+
+			case "ATU":
 			break;
-			
-			case "IE": 
+
+			case "IE":
 			break;
-			
-			case "PO": 
+
+			case "PO":
 			break;
-			
-			case "MT": 
+
+			case "MT":
 			break;
-			
-			case "US": 
+
+			case "US":
 			break;
-			
-			case "ES": 
+
+			case "ES":
 			break;
-			
-			case "GR": 
+
+			case "GR":
 			break;
-			
-			case "TUR": 
+
+			case "TUR":
 			break;
-			
-			default: 
+
+			default:
 	}
 }
 
@@ -89,7 +89,7 @@ if ($infos['astva'] == '4') { ## si assujeti
 ################### Fin Code PHP ########################
 ?>
 <form action="?act=modif" method="post">
-	<input type="hidden" name="idclient" value="<?php echo $did;?>"> 
+	<input type="hidden" name="idclient" value="<?php echo $did;?>">
 	<div id="leftmenu">
 		<div id="idsquare">
 			<table border="0" cellspacing="1" cellpadding="2" align="center" width="100%">
@@ -101,7 +101,7 @@ if ($infos['astva'] == '4') { ## si assujeti
 	</div>
 	<div id="infozone">
 		<div class="infosection">Infos G&eacute;n&eacute;rales</div>
-	
+
 		<table class="standard" border="0" cellspacing="1" cellpadding="0" align="center" width="98%">
 			<tr valign="top">
 				<td>
@@ -115,7 +115,7 @@ if ($infos['astva'] == '4') { ## si assujeti
 							</td>
 							<td> Horizon</td>
 							<td>
-						
+
 							<input type="text" size="20" name="codecompta" value="<?php echo $infos['codecompta']; ?>" disabled>
 							</td>
 						</tr>
@@ -128,7 +128,7 @@ if ($infos['astva'] == '4') { ## si assujeti
 							</td>
 							<td>langue facture</td>
 							<td>
-								<?php 
+								<?php
 								echo '<input type="radio" name="langue" value="FR" '; if (($infos['langue'] == '') OR ($infos['langue'] == 'FR')) { echo 'checked';} echo'> FR';
 								echo '<input type="radio" name="langue" value="NL" '; if ($infos['langue'] == 'NL') { echo 'checked';} echo'> NL';
 								?>
@@ -149,22 +149,22 @@ if ($infos['astva'] == '4') { ## si assujeti
 									$detail1 = new db();
 									$detail1->inline("SELECT * FROM `codepost` WHERE `cpbcode` = $cpbcode");
 									echo '<select name="ville">';
-										if (!empty($infos['ville'])) 
+										if (!empty($infos['ville']))
 										{
 										echo '<option value="'.$infos['ville'].'" selected>'.$infos['ville'].'</option>';
 										echo '<option value="">--------</option>';
-										
+
 										}
-										while ($row = mysql_fetch_array($detail1->result)) 
-										{ 
+										while ($row = mysql_fetch_array($detail1->result))
+										{
 											if ($infos['ville'] == $row['cpblocalite']) {$select = ' selected';} else {$select = '';}
-											echo '<option value="'.$row['cpblocalite'].'"'.$select.'>'.$row['cpblocalite'].'</option>';	
+											echo '<option value="'.$row['cpblocalite'].'"'.$select.'>'.$row['cpblocalite'].'</option>';
 										}
 									echo '</select>';
 									}
 									else { ?>
 										<input type="text" size="20" name="ville" value="<?php echo $infos['ville']; ?>">
-									<?php }							
+									<?php }
 								?>
 							</td>
 						</tr>
@@ -176,7 +176,7 @@ if ($infos['astva'] == '4') { ## si assujeti
 									/*
 										TODO : standardiser la liste des pays (BE, NL, UK....)
 									*/
-									If ($infos['pays'] == '') { 
+									If ($infos['pays'] == '') {
 										echo '<OPTION VALUE="Belgique">Belgique</OPTION>';
 									} else {
 										echo '<OPTION VALUE="'.$infos['pays'].'" SELECTED>'.$infos['pays'].'</option>';
@@ -203,12 +203,12 @@ if ($infos['astva'] == '4') { ## si assujeti
 					echo 'TVA';
 				}
 				?>
-			
+
 							</td>
 							<td>
-								<?php 
+								<?php
 								$ctva = array ('BE', 'FR', 'DE', 'DK', 'IT', 'LU', 'NL', 'UK', 'ATU', 'US', 'IE', 'CZ', 'PO', 'MT', 'TUR', 'ES', 'GR', '');
-			
+
 								echo '<select name="codetva">';
 								foreach ($ctva as $value) {
 									echo '<option value="'.$value.'"';
@@ -220,16 +220,16 @@ if ($infos['astva'] == '4') { ## si assujeti
 								echo '</select>';
 								?>
 								 &nbsp; <input type="text" size="20" name="tva" value="<?php echo $infos['tva']; ?>"><br>
-								<?php 
+								<?php
 								$astva = array (
-									'4' => 'Assujeti', 
+									'4' => 'Assujeti',
 									'3' => 'Exon&eacute;r&eacute;',
-									'5' => 'Etranger CEE', 
+									'5' => 'Etranger CEE',
 									'6' => 'Etranger Hors CEE',
 									'7' => 'Non assujetti ',
 									'8' => 'Communaut&eacute;s Europ&eacute;ennes'
 								);
-			
+
 								echo '<select name="astva">';
 								foreach ($astva as $key => $value) {
 									echo '<option value="'.$key.'"';
@@ -240,8 +240,8 @@ if ($infos['astva'] == '4') { ## si assujeti
 								}
 								echo '</select>';
 								?>
-								 &nbsp; <div style="font-size: 9px;color: #FF0000;"><?php echo $errtva; ?></div>
-						
+								 &nbsp; <div style="font-size: 9px;color: #FF0000;"><?php echo @$errtva; ?></div>
+
 							</td>
 							<td></td>
 							<td></td>
@@ -259,9 +259,9 @@ if ($infos['astva'] == '4') { ## si assujeti
 						<tr>
 							<td>Départements</td>
 							<td colspan="3">
-								Anim: <?php if ($infos['anim'] == 1) { echo 'oui ';} else { echo 'non ';} ?> &nbsp; &nbsp; &nbsp; 
-								Merch: <?php if ($infos['merch'] == 1) { echo 'oui ';} else { echo 'non ';} ?> &nbsp; &nbsp; &nbsp; 
-								Vip: <?php if ($infos['vip'] == 1) { echo 'oui ';} else { echo 'non ';} ?>
+								Anim:  <?php echo ($infos['anim']  == 1) ? 'oui ' : 'non '; ?> &nbsp; &nbsp; &nbsp;
+								Merch: <?php echo ($infos['merch'] == 1) ? 'oui ' : 'non '; ?> &nbsp; &nbsp; &nbsp;
+								Vip:   <?php echo ($infos['vip']   == 1) ? 'oui ' : 'non '; ?>
 							</td>
 						</tr>
 
@@ -283,8 +283,8 @@ if ($infos['astva'] == '4') { ## si assujeti
 						</tr>
 						<tr>
 							<td colspan="2">
-								Etat : 
-								<?php 
+								Etat :
+								<?php
 								echo '<input type="radio" name="etat" value="5" '; if (($infos['etat'] == '') OR ($infos['etat'] == '5')) { echo 'checked';} echo'> In';
 								echo '<input type="radio" name="etat" value="0" '; if ($infos['etat'] == '0') { echo 'checked';} echo'> Out';
 								?>
@@ -298,7 +298,7 @@ if ($infos['astva'] == '4') { ## si assujeti
 					<?php if (isset($did)) { ?>
 						<input type="submit" name="Modifier" value="Modifier" accesskey="M">
 					<?php } else { ?>
-						<input type="submit" name="act" value="Ajouter"> 
+						<input type="submit" name="act" value="Ajouter">
 					<?php } ?>
 				</td>
 			</tr>

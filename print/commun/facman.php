@@ -1,7 +1,7 @@
 <?php
 function path_fac_man($idfacture) {
 	global $DB;
-		
+
 	$annee = $DB->getOne("SELECT YEAR(datefac) FROM facture WHERE idfac = ".$idfacture);
 
    	$lespath['dossier'] = Conf::read('Env.root').'document/facture/'.$annee.'/';
@@ -10,7 +10,7 @@ function path_fac_man($idfacture) {
    	$lespath['history'] = Conf::read('Env.root').'history/facture/'.$annee.'/';
 
    	if (file_exists($lespath['full'])) $lespath['historyfull'] = $lespath['history'].$idfacture.'-'.date ("Ymd.Hi", filemtime($lespath['full'])).'.pdf';
-      	
+
 	## check et creation si besoin
    	if(!is_dir($lespath['dossier'])) mkdir($lespath['dossier'], 0777, true); #le 'true' c'est pour le recursif
    	if(!is_dir($lespath['history'])) mkdir($lespath['history'], 0777, true);
@@ -28,24 +28,24 @@ function print_fac_man($idfac, $entete = 'yes', $duplic, $prefac = null, $facinf
 	## init
 	$MontHTVA = 0;
 	$np = 1; # Numéro de la première page
-	
+
 	$fac = new facture($idfac);
 
 	$pdf = pdf_new();
 	pdf_open_file($pdf, $path['full']); # définit l'emplacement de la sauvegarde
-	
+
 	# Infos pour le document
 	pdf_set_info($pdf, "Author", "NEURO");
 	pdf_set_info($pdf, "Title", "Factures");
 	pdf_set_info($pdf, "Creator", "NEURO");
 	pdf_set_info($pdf, "Subject", "Facture");
-	
+
 	######## Variables de taille  ###############
 	$LargeurPage = 595; # Largeur A4
 	$HauteurPage = 842; # Hauteur A4
-	$MargeLeft = 30;
-	$MargeRight = 30;
-	$MargeTop = 30;
+	$MargeLeft   = 30;
+	$MargeRight  = 30;
+	$MargeTop    = 30;
 	$MargeBottom = 30;
 
 	######## Variables de taille  ###############
@@ -54,7 +54,7 @@ function print_fac_man($idfac, $entete = 'yes', $duplic, $prefac = null, $facinf
 
 	################### Phrasebook ########################
 	switch ($facinf['langue']) {
-		case "NL": 
+		case "NL":
 			include NIVO.'print/commun/nl.php';
 			setlocale(LC_TIME, 'nl_NL');
 			$lposte = 'PostesNL';
@@ -62,13 +62,13 @@ function print_fac_man($idfac, $entete = 'yes', $duplic, $prefac = null, $facinf
 
 		case "":
 			echo '<br> Langue pas d&eacute;finie pour le client xx : '.$facinf['idclient']." ".$facinf['societe'];
-		case "FR": 
+		case "FR":
 			include NIVO.'print/commun/fr.php';
 			setlocale(LC_TIME, 'fr_FR');
 			$lposte = 'PostesFR';
 		break;
 	}
-	
+
 	################### Phrasebook ########################
 
 	$facdet = $DB->getArray("SELECT * FROM `facmanuel` WHERE `idfac` = ".$idfac." ORDER BY poste ASC");
@@ -218,7 +218,7 @@ pdf_translate($pdf, $MargeLeft, $MargeBottom); # Positionne le repère au point b
 
 
 ###### Logo
-if (!empty($entete)) { 
+if (!empty($entete)) {
 	# illu
 	$logobig = pdf_load_image($pdf, "png", $_SERVER["DOCUMENT_ROOT"]."/print/illus/logoPrint.png", "");
 	$haut = PDF_get_value($pdf, "imageheight", $logobig) * 0.4; # Calcul de la hauteur
@@ -226,9 +226,9 @@ if (!empty($entete)) {
 }
 
 ###### Duplicatas
-if (!empty($duplic)) { 
-	# duplicata illus 
-	$duplicata = $_SERVER["DOCUMENT_ROOT"].'/print/illus/duplicata.jpg';	
+if (!empty($duplic)) {
+	# duplicata illus
+	$duplicata = $_SERVER["DOCUMENT_ROOT"].'/print/illus/duplicata.jpg';
 	$duplicata = PDF_load_image($pdf, "jpeg", $duplicata, "");
 	pdf_place_image($pdf, $duplicata, 225, 730, 0.35);
 }
@@ -238,7 +238,7 @@ if (!empty($duplic)) {
 	pdf_set_value ($pdf, "leading", 17);
 	pdf_show_boxed($pdf, "\r".utf8_decode($fac->societe)." (".$fac->idclient.")
 ".$phrase[64]."
-".utf8_decode($fac->adresse)." 
+".utf8_decode($fac->adresse)."
 ".$fac->pays."
 ".$fac->ftva."
 " , 265 , 555, 310, 170, 'left', ""); # infos contact
@@ -252,7 +252,7 @@ if (!empty($duplic)) {
 #### Cadres #################################################
 #	 														#
 	pdf_setcolor($pdf, "fill", "gray", 0.9, 0, 0, 0);
-	
+
 	pdf_rect($pdf, 0, 548, 95, 27);				#
 	pdf_rect($pdf, 95, 548, 335, 27);			# rectangles remplis
 	pdf_rect($pdf, 430, 548, 95, 27);			#
@@ -307,7 +307,7 @@ if (!empty($duplic)) {
 	pdf_set_value ($pdf, "leading", 12);
 
 	pdf_show_boxed($pdf, utf8_decode($fac->intitule) , 0 , 670 , 530, 20 , 'left', ""); # Sujet
-	
+
 	# PO
 	if (!empty($fac->boncommande)) {
 		pdf_setfont($pdf, $TimesRoman, 10);
@@ -319,32 +319,32 @@ if (!empty($duplic)) {
 	pdf_show_boxed($pdf, $phrase[5] , 0 , 555 , 95, 20 , 'center', ""); 		# Titre gris 1
 	pdf_show_boxed($pdf, $phrase[6] , 100 , 555 , 290, 20 , 'center', ""); 	# Titre gris 2
 	pdf_show_boxed($pdf, $phrase[8] , 430 , 555 , 95, 20 , 'center', "");	 	# Titre gris 3
-	
-	pdf_show_boxed($pdf, $tttable[0]['poste'] , 0 , 515 , 95, 30 , 'center', ""); 	# Titre gauche l1
-	pdf_show_boxed($pdf, $tttable[1]['poste'] , 0 , 475 , 95, 30 , 'center', ""); 	# Titre gauche l2
-	pdf_show_boxed($pdf, $tttable[2]['poste'] , 0 , 435 , 95, 30 , 'center', ""); 	# Titre gauche l3
-	pdf_show_boxed($pdf, $tttable[3]['poste'] , 0 , 395 , 95, 30 , 'center', ""); 	# Titre gauche l4
-	pdf_show_boxed($pdf, $tttable[4]['poste'] , 0 , 355 , 95, 30 , 'center', ""); 	# Titre gauche l5
-	pdf_show_boxed($pdf, $tttable[5]['poste'] , 0 , 315 , 95, 30 , 'center', ""); 	# Titre gauche l6
-	pdf_show_boxed($pdf, $tttable[6]['poste'] , 0 , 275 , 95, 30 , 'center', ""); 	# Titre gauche l7
 
-	
+	pdf_show_boxed($pdf, @$tttable[0]['poste'] , 0 , 515 , 95, 30 , 'center', ""); 	# Titre gauche l1
+	pdf_show_boxed($pdf, @$tttable[1]['poste'] , 0 , 475 , 95, 30 , 'center', ""); 	# Titre gauche l2
+	pdf_show_boxed($pdf, @$tttable[2]['poste'] , 0 , 435 , 95, 30 , 'center', ""); 	# Titre gauche l3
+	pdf_show_boxed($pdf, @$tttable[3]['poste'] , 0 , 395 , 95, 30 , 'center', ""); 	# Titre gauche l4
+	pdf_show_boxed($pdf, @$tttable[4]['poste'] , 0 , 355 , 95, 30 , 'center', ""); 	# Titre gauche l5
+	pdf_show_boxed($pdf, @$tttable[5]['poste'] , 0 , 315 , 95, 30 , 'center', ""); 	# Titre gauche l6
+	pdf_show_boxed($pdf, @$tttable[6]['poste'] , 0 , 275 , 95, 30 , 'center', ""); 	# Titre gauche l7
+
+
 	# Phrase Time 9 sans interligne
 	pdf_setfont($pdf, $TimesRoman, 10);
 	pdf_set_value ($pdf, "leading", 10);
-	
-	pdf_show_boxed($pdf, utf8_decode($tttable[0]['desc']) , 100 , 515 , 300, 30 , 'left', ""); 	# Detail Prestations
-	pdf_show_boxed($pdf, utf8_decode($tttable[1]['desc']) , 100 , 475 , 300, 30 , 'left', ""); 	# Detail Deplacement
-	pdf_show_boxed($pdf, utf8_decode($tttable[2]['desc']) , 100 , 435 , 300, 30 , 'left', ""); 	# Detail Location
-	pdf_show_boxed($pdf, utf8_decode($tttable[3]['desc']) , 100 , 395 , 300, 30 , 'left', ""); 	# Detail Frais
-	pdf_show_boxed($pdf, utf8_decode($tttable[4]['desc']) , 100 , 355 , 300, 30 , 'left', "");	# Detail Divers
-	pdf_show_boxed($pdf, utf8_decode($tttable[5]['desc']) , 100 , 315 , 300, 30 , 'left', ""); 	# Detail Briefing
-	pdf_show_boxed($pdf, utf8_decode($tttable[6]['desc']) , 100 , 275 , 300, 30 , 'left', "");	# Detail P forfait
+
+	pdf_show_boxed($pdf, utf8_decode(@$tttable[0]['desc']) , 100 , 515 , 300, 30 , 'left', ""); 	# Detail Prestations
+	pdf_show_boxed($pdf, utf8_decode(@$tttable[1]['desc']) , 100 , 475 , 300, 30 , 'left', ""); 	# Detail Deplacement
+	pdf_show_boxed($pdf, utf8_decode(@$tttable[2]['desc']) , 100 , 435 , 300, 30 , 'left', ""); 	# Detail Location
+	pdf_show_boxed($pdf, utf8_decode(@$tttable[3]['desc']) , 100 , 395 , 300, 30 , 'left', ""); 	# Detail Frais
+	pdf_show_boxed($pdf, utf8_decode(@$tttable[4]['desc']) , 100 , 355 , 300, 30 , 'left', "");	# Detail Divers
+	pdf_show_boxed($pdf, utf8_decode(@$tttable[5]['desc']) , 100 , 315 , 300, 30 , 'left', ""); 	# Detail Briefing
+	pdf_show_boxed($pdf, utf8_decode(@$tttable[6]['desc']) , 100 , 275 , 300, 30 , 'left', "");	# Detail P forfait
 
 	# Phrases italic
 	pdf_setfont($pdf, $TimesItalic, 12);
 	pdf_set_value ($pdf, "leading", 12);
-	pdf_show_boxed($pdf, $phrase[13] , 0 , 185 , 270, 20 , 'left', ""); # Paiement 30 jours	
+	pdf_show_boxed($pdf, $phrase[13] , 0 , 185 , 270, 20 , 'left', ""); # Paiement 30 jours
 
 	# Exemption TVA
 	if (($fac->astva == 6) or ($fac->astva == 5) or ($fac->astva == 3)) $exemption = $phrase[72];
@@ -352,8 +352,8 @@ if (!empty($duplic)) {
 
 	pdf_setfont($pdf, $TimesItalic, 12);
 	pdf_set_value ($pdf, "leading", 12);
-	pdf_show_boxed($pdf, $exemption , 0 , 225 , 270, 40 , 'left', ""); 
-	
+	pdf_show_boxed($pdf, $exemption , 0 , 225 , 270, 40 , 'left', "");
+
 	unset($exemption);
 
 	# Phrase Time 12 sans interligne
@@ -364,15 +364,15 @@ if (!empty($duplic)) {
 	pdf_show_boxed($pdf, $phrase[65].utf8_decode($fac->qual." ".$fac->nom) , 0 , 610 , 270, 20 , 'left', ""); # commandé par
 
 	pdf_show_boxed($pdf, $phrase[61].' : '.ffac($idfac) , 0 , 590 , 500, 20 , 'left', ""); # Phrase intro
-	
-	pdf_show_boxed($pdf, fpeuro($tttable[0]['montant']) , 410 , 515 , 110, 20 , 'right', ""); 	# Montant Prestations
-	pdf_show_boxed($pdf, fpeuro($tttable[1]['montant']) , 410 , 475 , 110, 20 , 'right', ""); 	# Montant Deplacement
-	pdf_show_boxed($pdf, fpeuro($tttable[2]['montant']) , 410 , 435 , 110, 20 , 'right', ""); 	# Montant Location
-	pdf_show_boxed($pdf, fpeuro($tttable[3]['montant']) , 410 , 395 , 110, 20 , 'right', ""); 	# Montant Frais
-	pdf_show_boxed($pdf, fpeuro($tttable[4]['montant']) , 410 , 355 , 110, 20 , 'right', ""); 	# Montant Divers
-	pdf_show_boxed($pdf, fpeuro($tttable[5]['montant']) , 410 , 315 , 110, 20 , 'right', ""); 	# Montant Briefing
-	pdf_show_boxed($pdf, fpeuro($tttable[6]['montant']) , 410 , 275 , 110, 20 , 'right', ""); 	# Montant forfait
-	
+
+	pdf_show_boxed($pdf, fpeuro(@$tttable[0]['montant']) , 410 , 515 , 110, 20 , 'right', ""); 	# Montant Prestations
+	pdf_show_boxed($pdf, fpeuro(@$tttable[1]['montant']) , 410 , 475 , 110, 20 , 'right', ""); 	# Montant Deplacement
+	pdf_show_boxed($pdf, fpeuro(@$tttable[2]['montant']) , 410 , 435 , 110, 20 , 'right', ""); 	# Montant Location
+	pdf_show_boxed($pdf, fpeuro(@$tttable[3]['montant']) , 410 , 395 , 110, 20 , 'right', ""); 	# Montant Frais
+	pdf_show_boxed($pdf, fpeuro(@$tttable[4]['montant']) , 410 , 355 , 110, 20 , 'right', ""); 	# Montant Divers
+	pdf_show_boxed($pdf, fpeuro(@$tttable[5]['montant']) , 410 , 315 , 110, 20 , 'right', ""); 	# Montant Briefing
+	pdf_show_boxed($pdf, fpeuro(@$tttable[6]['montant']) , 410 , 275 , 110, 20 , 'right', ""); 	# Montant forfait
+
 	pdf_show_boxed($pdf, fpeuro($fac->MontTVA) , 430 , 225 , 90, 20 , 'right', ""); 	# T Montant
 	pdf_show_boxed($pdf, fpeuro($fac->MontHTVA) , 430 , 250 , 90, 20 , 'right', ""); 	# T Montant
 	pdf_show_boxed($pdf, fpeuro($fac->MontTTC) , 430 , 205 , 90, 20 , 'right', ""); # T Montant
@@ -386,7 +386,7 @@ if (!empty($duplic)) {
 	# Avec Interligne
 	pdf_set_value ($pdf, "leading", 23);
 	pdf_show_boxed($pdf, $phrase[16] , 280 , 190 , 140, 90 , 'right', ""); # T Montant
-	
+
 	pdf_setfont($pdf, $TimesRoman, 10); pdf_set_value ($pdf, 'leading', 12);
 	pdf_show_boxed($pdf, $phrase[63] , 0, 150, 534, 31 , 'left', "");
 
@@ -397,20 +397,20 @@ if (!empty($duplic)) {
 	# Clauses
 	pdf_setfont($pdf, $TimesItalic, 8);
 	pdf_show_boxed($pdf, $phrase[19] , 10 , 50 , $LargeurUtile, 48 , 'left', "");
-	
+
 	if (!empty($entete)) {
 		# Ligne de bas de page
 		pdf_moveto($pdf, 0, 50);
 		pdf_lineto($pdf, $LargeurUtile, 50);
 		pdf_stroke($pdf); # Ligne de bas de page
-	
+
 		# Coordonnées Exception
 		pdf_setfont($pdf, $TimesRoman, 10);
-	
+
 		pdf_show_boxed($pdf, $phrase[20] ,0 ,0 , $LargeurUtile / 3, 40, 'center', ""); #texte du commentaire
 		pdf_show_boxed($pdf, $phrase[21] , $LargeurUtile / 3,0 , $LargeurUtile / 3,40, 'center', ""); #texte du commentaire
 		pdf_show_boxed($pdf, $phrase[22] , $LargeurUtile * 2 / 3 ,0 , $LargeurUtile / 3, 40, 'center', ""); #texte du commentaire
-	}	
+	}
 
 	#															#
 	#### Pied de Page    ########################################
@@ -424,4 +424,4 @@ if (!empty($duplic)) {
 
 	return $path['full'];
 }
-?> 
+?>

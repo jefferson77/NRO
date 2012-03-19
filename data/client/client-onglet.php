@@ -7,7 +7,7 @@ include NIVO."includes/ifentete.php" ;
 ## vars
 $pathannexe = Conf::read('Env.root')."media/annexe/client/".prezero($_REQUEST['idclient'], 5);
 
-switch ($_REQUEST['act']) {
+switch (@$_REQUEST['act']) {
 ## infos notes + tarifs ############################################################################################################################################
 	case 'modinfos':
 		$_POST['codeclient'] = $_REQUEST['idclient'];

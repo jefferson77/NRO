@@ -22,20 +22,20 @@ switch ($facan->mode) {
 $TimesBold = PDF_load_font($pdf, "Times-Bold", "host", "");
 $TimesRoman = PDF_load_font($pdf, "Times-Roman", "host", "");
 
-$tour = 1;
-$turntot = 1;
-		$DetHeures = 0;
-		$DetKm = 0;
-		$MontFrais  = 0;
-		$DetStand = 0;
+		$tour          = 1;
+		$turntot       = 1;
+		$DetHeures     = 0;
+		$DetKm         = 0;
+		$MontFrais     = 0;
+		$DetStand      = 0;
 		$MontLivraison = 0;
-		$MontGobelets = 0;
+		$MontGobelets  = 0;
 		$MontServiette = 0;
-		$MontFour = 0;
-		$MontCuredent = 0;
-		$MontCuillere = 0;
-		$MontRechaud = 0;
-		$MontAutre = 0;
+		$MontFour      = 0;
+		$MontCuredent  = 0;
+		$MontCuillere  = 0;
+		$MontRechaud   = 0;
+		$MontAutre     = 0;
 
 	$det = new db();
 	$det->inline("SET NAMES latin1");
@@ -62,18 +62,18 @@ $turntot = 1;
 		$anim = new coreanim($row['idanimation']);
 
 		## incrÈmentation des totaux H et KM pour print
-		$DetHeures += $anim->hprest;
-		$DetKm += $row['kmfacture'];
-		$MontFrais += $row['montantfacture'];
-		$DetStand += $row['stand'];
+		$DetHeures     += $anim->hprest;
+		$DetKm         += $row['kmfacture'];
+		$MontFrais     += $row['montantfacture'];
+		$DetStand      += $row['stand'];
 		$MontLivraison += $row['livraisonfacture'];
-		$MontGobelets += $row['gobelet'];
+		$MontGobelets  += $row['gobelet'];
 		$MontServiette += $row['serviette'];
-		$MontFour += $row['four'];
-		$MontCuredent += $row['curedent'];
-		$MontCuillere += $row['cuillere'];
-		$MontRechaud += $row['rechaud'];
-		$MontAutre += $row['autre'];
+		$MontFour      += $row['four'];
+		$MontCuredent  += $row['curedent'];
+		$MontCuillere  += $row['cuillere'];
+		$MontRechaud   += $row['rechaud'];
+		$MontAutre     += $row['autre'];
 
 		if ($tour == 1) {
 
@@ -95,12 +95,12 @@ $turntot = 1;
 
 			#### Entete de Page  ########################################
 			#															#
-			
+
 				# illu
 				$logobig = pdf_load_image($pdf, "png", $_SERVER["DOCUMENT_ROOT"]."/print/illus/logoPrint.png", "");
 				$haut = PDF_get_value($pdf, "imageheight", $logobig) * 0.3; # Calcul de la hauteur
 				pdf_place_image($pdf, $logobig, 5, $LargeurUtile - $haut, 0.3);
-				
+
 				# Titre
 				pdf_setfont($pdf, $TimesBold, 18);
 				pdf_set_value ($pdf, "leading", 18);
@@ -201,7 +201,7 @@ $turntot = 1;
 				pdf_rect($pdf, 305 , $tab , 40, $hl); # km
 				pdf_rect($pdf, 345 , $tab , 40, $hl); # frais
 				pdf_rect($pdf, 385 , $tab , 40, $hl); # stand
-				
+
 				pdf_rect($pdf, 425 , $tab , 40, $hl); # livraison
 				pdf_rect($pdf, 465 , $tab , 40, $hl); # gobelet
 				pdf_rect($pdf, 505 , $tab , 40, $hl); # serviettes
@@ -229,7 +229,7 @@ $turntot = 1;
 				pdf_show_boxed($pdf, fnbr($row['kmfacture']) , 305 , $tabt , 40, $ht , 'center', ""); # km
 				pdf_show_boxed($pdf, fpeuro($row['montantfacture']) , 345 , $tabt , 40, $ht , 'center', ""); # frais
 				pdf_show_boxed($pdf, fnbr($row['stand']) , 385 , $tabt , 40, $ht , 'center', ""); # stand
-				
+
 				pdf_show_boxed($pdf, fpeuro($row['livraisonfacture']) , 	425 , $tabt , 40, $ht , 'center', ""); # livraison
 				pdf_show_boxed($pdf, fpeuro($row['gobelet']) , 			465 , $tabt , 40, $ht , 'center', ""); # gobelet
 				pdf_show_boxed($pdf, fpeuro($row['serviette']) , 			505 , $tabt , 40, $ht , 'center', ""); # serviettes
@@ -259,7 +259,7 @@ $turntot = 1;
 				pdf_rect($pdf, 305 , $tab , 40, $hl); # km
 				pdf_rect($pdf, 345 , $tab , 40, $hl); # frais
 				pdf_rect($pdf, 385 , $tab , 40, $hl); # stand
-				
+
 				pdf_rect($pdf, 425 , $tab , 40, $hl); # livraison
 				pdf_rect($pdf, 465 , $tab , 40, $hl); # gobelet
 				pdf_rect($pdf, 505 , $tab , 40, $hl); # serviettes
@@ -279,7 +279,7 @@ $turntot = 1;
 				pdf_show_boxed($pdf, fnbr($DetKm) , 305 , $tabt , 40, $ht , 'center', ""); # km
 				pdf_show_boxed($pdf, fpeuro($MontFrais) , 345 , $tabt , 40, $ht , 'center', ""); # frais
 				pdf_show_boxed($pdf, fnbr($DetStand) , 385 , $tabt , 40, $ht , 'center', ""); # stand
-				
+
 				pdf_show_boxed($pdf, fpeuro($MontLivraison) , 	425 , $tabt , 40, $ht , 'center', ""); # livraison
 				pdf_show_boxed($pdf, fpeuro($MontGobelets) , 	465 , $tabt , 40, $ht , 'center', ""); # gobelet
 				pdf_show_boxed($pdf, fpeuro($MontServiette) , 	505 , $tabt , 40, $ht , 'center', ""); # serviettes
