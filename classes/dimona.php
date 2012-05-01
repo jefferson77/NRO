@@ -3,7 +3,7 @@ class dimona {
 ######## Config #####################################
     var $numexpediteur      = '106740'; # Numéro d'expéditeur Dimona (6 N)
     var $numemploy          = '112651531'; # Numero d'employeur ONSS
-    var $versionfichier     = '20113'; # Numéro de version du fichier 2011/1
+    var $versionfichier     = '20121'; # Numéro de version du fichier 2012/1
     var $KEYpass            = 'Exception01';
     var $login              = "EXP_CALLANDT";
     var $password           = "exception01";
@@ -492,15 +492,28 @@ class dimona {
 
                         ## Période Dimona en chevauchement
                         case '90373-334':
-                            $typedecl = 'entree';
-                            $datein = $form->HandlingResult->AnomalyReport->AnomalyComplInformation->DimonaPeriod->StartingDate;
-                            $dateout = isset($form->HandlingResult->AnomalyReport->AnomalyComplInformation->DimonaPeriod->EndingDate)
-                                            ?$form->HandlingResult->AnomalyReport->AnomalyComplInformation->DimonaPeriod->EndingDate
-                                            :$form->FormCreationDate;
+                            $typedecl  = 'entree';
+                            $datein    = $form->HandlingResult->AnomalyReport->AnomalyComplInformation->DimonaPeriod->StartingDate;
+                            $dateout   = isset($form->HandlingResult->AnomalyReport->AnomalyComplInformation->DimonaPeriod->EndingDate)
+                                        ?$form->HandlingResult->AnomalyReport->AnomalyComplInformation->DimonaPeriod->EndingDate
+                                        :$form->FormCreationDate;
                             $numdimona = $form->HandlingResult->AnomalyReport->AnomalyComplInformation->DimonaPeriod->DimonaPeriodId;
-                            $status = 'error';
-                            $notes = 'Période déjà couverte | dimona initiale introduite le '.$form->HandlingResult->AnomalyReport->AnomalyComplInformation->DimonaPeriod->LastUpdateDate.' a '.$form->HandlingResult->AnomalyReport->AnomalyComplInformation->DimonaPeriod->LastUpdateHour ;
+                            $status    = 'error';
+                            $notes     = 'Période déjà couverte | dimona initiale introduite le '.$form->HandlingResult->AnomalyReport->AnomalyComplInformation->DimonaPeriod->LastUpdateDate.' a '.$form->HandlingResult->AnomalyReport->AnomalyComplInformation->DimonaPeriod->LastUpdateHour ;
                             $parsed['ERR range']++;
+                            break;
+
+                        ## Numéro DIMONA inconnu
+                        case '00913-354':
+                            $typedecl  = 'annulation';
+                            $numdimona = $form->HandlingResult->AnomalyReport->Value;
+                            $status    = 'error';
+                            $notes     = 'Numéro DIMONA inconnu : '.$form->HandlingResult->AnomalyReport->Value ;
+                            $parsed['OK annulations']++;
+
+                            if (!empty($numdimona) && preg_match("^\d{6,}$", $numdimona)) {
+                                $DB->inline("DELETE FROM `declarations` WHERE `numdimona` LIKE '".$numdimona."'");
+                            }
                             break;
 
                         default:
