@@ -1,8 +1,8 @@
 <?php
-define('NIVO', '../../');
+if (!defined('NIVO')) define('NIVO', '../../');
 
-if (isset($_POST['idp'])) {	$idp = $_POST['idp'];} elseif(isset($_GET['idp'])) {$idp = $_GET['idp'];}
-if (isset($_POST['sfx'])) {	$sfx = $_POST['sfx'];} elseif(isset($_GET['sfx'])) { $sfx = $_GET['sfx'];}
+$idp = !empty($_REQUEST['idp']) ? $_REQUEST['idp'] : '';
+$sfx = !empty($_REQUEST['sfx']) ? $_REQUEST['sfx'] : '';
 
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////

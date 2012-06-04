@@ -1,8 +1,8 @@
 <?php
-define('NIVO', '../../');
+if (!defined('NIVO')) define('NIVO', '../../');
 
-if (isset($_POST['idp'])) {	$idp = $_POST['idp'];} elseif(isset($_GET['idp'])) { $idp = $_GET['idp'];}
-if (isset($_POST['sfx'])) {	$sfx = $_POST['sfx'];} elseif(isset($_GET['sfx'])) { $sfx = $_GET['sfx'];}
+$idp = !empty($_REQUEST['idp']) ? $_REQUEST['idp'] : '';
+$sfx = !empty($_REQUEST['sfx']) ? $_REQUEST['sfx'] : '';
 
 // include the config file
 include_once("config.php");
@@ -46,10 +46,10 @@ if(!empty($_GET['fakeupload'])) {
 	if (isset($_FILES['crUpload'])){
 		// first check outdated files.
 		if ($crKeepTempFiles > 0){
-			if ($handle = opendir($crCropperDir."temp")) {
+			if ($handle = opendir($crCropperDir."../../../tmp")) {
 				while (false !== ($file = readdir($handle))) {
 					if ($file != "." && $file != "..") {
-						$theFile = $crCropperDir."temp/".$file;
+						$theFile = $crCropperDir."../../../tmp/".$file;
 						$minTime = time() - ($crKeepTempFiles * 60 * 60);
 						if (filemtime($theFile) < $minTime){
 							@unlink($theFile);
@@ -64,16 +64,16 @@ if(!empty($_GET['fakeupload'])) {
 		if (is_uploaded_file($_FILES['crUpload']['tmp_name'])){
 			$tmp = $_FILES['crUpload']['tmp_name'];
 			$tmpData = getimagesize($tmp);
-			
+
 			//si l'extension du fichier est bonne
 			//if ($tmpData[2] == 2 || $tmpData == 3){
 			if ($tmpData[2] < 4){
 				//si l'image est trop petite
-				if ($tmpData[0] < $crWidth || $tmpData[1] < $crHeight) {
+				if ($tmpData[0] < @$crWidth || $tmpData[1] < @$crHeight) {
 					$do = "error";
 					$error = $crErrorVars['orgTooSmall'].$crWidth." x ".$crHeight;
-				//si le fichier est aux dimensions correctes de crop	
-				} else if ($tmpData[0] == $crWidth && $tmpData[1] == $crHeight && $crVarCropSize == 0) {
+				//si le fichier est aux dimensions correctes de crop
+				} else if ($tmpData[0] == @$crWidth && $tmpData[1] == @$crHeight && $crVarCropSize == 0) {
 					$vars['crOrgFile'] = $vars['crResultDir'] . time() . "-" . $_FILES['crUpload']['name'];
 					if (move_uploaded_file($tmp, $vars['crOrgFile'])){
 						@chmod($vars['crOrgFile'], 0644);
@@ -121,7 +121,7 @@ if(!empty($_GET['fakeupload'])) {
 
 	// Do stuff before the page is printed!
 	if ($do == "uploaded"){
-		
+
 		$keys = array_keys($vars);
 		$goto = "cropper.php?do=crop&idp=$idp&sfx=$sfx";
 		for ($i = 0; $i < count($keys); $i++){

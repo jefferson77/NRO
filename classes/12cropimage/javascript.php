@@ -2,13 +2,12 @@
 # Entete de page
 define('NIVO', '../../');
 
-if (isset($_POST['idp'])) {	$idp = $_POST['idp'];} elseif(isset($_GET['idp'])) {$idp = $_GET['idp'];}
-if (isset($_POST['sfx'])) {	$sfx = $_POST['sfx'];} elseif(isset($_GET['sfx'])) { $sfx = $_GET['sfx'];}
-	
-	
-	include_once("config.php");
+$idp = !empty($_REQUEST['idp']) ? $_REQUEST['idp'] : '';
+$sfx = !empty($_REQUEST['sfx']) ? $_REQUEST['sfx'] : '';
 
-	header("Content-type: text/javascript;");
+include_once("config.php");
+
+header("Content-type: text/javascript;");
 
 ?>
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -139,7 +138,7 @@ function crInitCropper2(rawWidth, rawHeight){
 				}
 				divs[i].style.width = vars.crDivWidth + "px";
 				divs[i].style.height = vars.crDivHeight + "px";
-				
+
 				var crFrame = '<iframe name="crFrame'+ j +'" id="crFrame'+ j +'" src="<?php echo $crCropperUrl?>/cropper.php?do=crop&fakeupload=1&idp=<?php echo $idp?>&sfx=<?php echo $sfx?>&crId=0&crResultDir=<?php echo $picUpCropDir ?>&crWidth=<?php echo $crStandardVars['crWidth'] ?>&crHeight=<?php echo $crStandardVars['crHeight'] ?>&crDivWidth=414&crDivHeight=24&crVarCropSize=<?php echo $crStandardVars['crVarCropSize'] ?>&crShowPreview=<?php echo $crStandardVars['crShowPreview'] ?>&crAntiCache=1&crOrgFile=<?php echo $picUpTempFile ?>&crOrgWidth=' + rawWidth + '&crOrgHeight=' + rawHeight + '"';
 				crFrame += '" width="' + vars.crDivWidth + '" height="' + vars.crDivHeight + '" scrolling="no" frameborder="0"></iframe>';
 
@@ -150,7 +149,7 @@ function crInitCropper2(rawWidth, rawHeight){
 	} else {
 		alert(crAlertVars.noSupport);
 	}
-	
+
 }
 
 
@@ -367,7 +366,7 @@ function crExitCrop(crId,crResult){
 function hideDiv(idpr,valeur)
 {
 	var pr = document.getElementById(idpr);
- 
+
 	if (valeur == 1) {
 		pr.style.display = "none";
 	} else {
