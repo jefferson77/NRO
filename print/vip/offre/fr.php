@@ -20,7 +20,7 @@ $phrase[17] = "Si cette offre vous agrée, il vous suffit de nous la retourner si
 Nous restons, dans cette attente, à votre disposition pour tout autre renseignement.
 Recevez, ";
 $phrase[18] = " , l'expression de nos salutations distinguées.";
-$phrase[19] = "* En cas d'annulation endéans les 72 heures d'une prestation qui ne pourrait être reportée, il est prévu un dédommagement pour le prestataire en l'agence égal à 25% du budget de ladite prestation.
+$phrase[19] = "* En cas d'annulation endéans les 72 heures d'une prestation qui ne pourrait être reportée, il est prévu un dédommagement pour le prestataire en l'agence égal à 50% du budget de ladite prestation.
 * En cas de non paiement à l'échéance, les montants dus seront majorés, de plein droit, et sans mise en demeure préalable, d'un intérêt de 15% l'an et une indemnité forfaitaire égale à 10% du montant de la facture avec un minimum de 50,00 Euro sera due.
 * Nos offres sont valables deux mois et sont faites à titre purement indicatif.
 * Conditions générales de ventes connues par le client.

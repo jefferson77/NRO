@@ -22,7 +22,7 @@ $phrase[17] = "Indien uw akkoord gaat met bovenstaand prijsofferte, volstaat het
 
 
 # $phrase[18] = "\rMet de meeste hoogachting.";
-$phrase[19] = "* Indien U een hostess 72 uur voor een prestatie annuleert en wanneer deze manifestatie niet kan verplaatst worden naar een latere datum, wordt een vergoeding aangerekend van 25 % van kostprijs van de actie
+$phrase[19] = "* Indien U een hostess 72 uur voor een prestatie annuleert en wanneer deze manifestatie niet kan verplaatst worden naar een latere datum, wordt een vergoeding aangerekend van 50 % van kostprijs van de actie.
 * Bij wanbetaling op de vervaldatum, zullen de verschuldigde bedragen van rechtswege en zonder ingebrekestelling worden vermeerderd met 15 % intrest per jaar en een forfaitaire schadevergoeding gelijk aan 10 % van het bedrag van de factuur met een minimum van 50 Euro zal geëist worden.
 * Onze offertes hebben een geldigheidsduur van twee maanden.
 * Exception is niet verantwoordelijk voor verloren of beschadigd materiaal die ter beschikking van het personeel wordt gesteld.
