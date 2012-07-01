@@ -1,8 +1,10 @@
 <?php
+// TODO : gérer les boutons de la barre de menu par vue;
+
 define('NIVO', '../../');
 
-$Titre = 'PEOPLE';
-$Style = 'standard';
+$Titre     = 'PEOPLE';
+$Style     = 'standard';
 $PhraseBas = 'S&eacute;lection d\'un people';
 
 ## Entete
@@ -20,8 +22,7 @@ $geocalc = new GeoCalc();
 if (!empty($_REQUEST['casting'])) $_SESSION['casting'] = $_REQUEST['casting'];
 
 # Carousel des fonctions
-switch ($_REQUEST['act'])
-{
+switch ($_REQUEST['act']) {
 ################# GEOLOC #############################################################
 		case "geoloc":
 			$idpeople = $_REQUEST['idpeople'];
@@ -198,9 +199,9 @@ switch ($_REQUEST['act'])
 					$larray[] = $val;
 				}
 			}
-			$idpeople = $_POST['idpeople'];
+			$idpeople    = $_POST['idpeople'];
 			$idwebpeople = $_POST['idwebpeople'];
-			$modif = new db('people', 'idpeople');
+			$modif       = new db('people', 'idpeople');
 			$modif->MODIFIE($idpeople, $larray);
 
 			$del = new db('webpeople', 'idwebpeople', 'webneuro');
@@ -211,23 +212,23 @@ switch ($_REQUEST['act'])
 
 				if ($_POST['switchphoto'] == 'oui') {
 
-					$photoweb = GetPhotoPath($idwebpeople, 'web', 'path');
+					$photoweb   = GetPhotoPath($idwebpeople, 'web', 'path');
 					$photofile2 = GetPhotoPath($idp, 'photo', 'path');
-					$photoraw2 = GetPhotoPath($idp, 'raw', 'path');
+					$photoraw2  = GetPhotoPath($idp, 'raw', 'path');
 
-					$photoweb2 = GetPhotoPath($idwebpeople, 'web', 'path', '-b');
-					$photofile = GetPhotoPath($idp, 'photo', 'path', '-b');
-					$photoraw = GetPhotoPath($idp, 'raw', 'path', '-b');
+					$photoweb2  = GetPhotoPath($idwebpeople, 'web', 'path', '-b');
+					$photofile  = GetPhotoPath($idp, 'photo', 'path', '-b');
+					$photoraw   = GetPhotoPath($idp, 'raw', 'path', '-b');
 
 				} else {
 
-					$photofile = GetPhotoPath($idp, 'photo', 'path');
-					$photoraw = GetPhotoPath($idp, 'raw', 'path');
-					$photoweb = GetPhotoPath($idwebpeople, 'web', 'path');
+					$photofile  = GetPhotoPath($idp, 'photo', 'path');
+					$photoraw   = GetPhotoPath($idp, 'raw', 'path');
+					$photoweb   = GetPhotoPath($idwebpeople, 'web', 'path');
 
 					$photofile2 = GetPhotoPath($idp, 'photo', 'path', '-b');
-					$photoraw2 = GetPhotoPath($idp, 'raw', 'path', '-b');
-					$photoweb2 = GetPhotoPath($idwebpeople, 'web', 'path', '-b');
+					$photoraw2  = GetPhotoPath($idp, 'raw', 'path', '-b');
+					$photoweb2  = GetPhotoPath($idwebpeople, 'web', 'path', '-b');
 
 				}
 
@@ -309,10 +310,10 @@ switch ($_REQUEST['act'])
 ############## Modif des PEOPLE Web Updated #########################################
 		case "webnewmodif":
 
-#			if (!empty($_POST['champs'])) { $_POST['champs'] = fdatebk($_POST['champs']); }
-			if (!empty($_POST['ndate'])) { $_POST['ndate'] = fdatebk($_POST['ndate']); }
-			if (!empty($_POST['datemariage'])) { $_POST['datemariage'] = fdatebk($_POST['datemariage']); }
-			if (!empty($_POST['dateconjoint'])) { $_POST['dateconjoint'] = fdatebk($_POST['dateconjoint']); }
+#			if(!empty($_POST['champs'])) { $_POST['champs'] = fdatebk($_POST['champs']); }
+			if(!empty($_POST['ndate'])) { $_POST['ndate'] = fdatebk($_POST['ndate']); }
+			if(!empty($_POST['datemariage'])) { $_POST['datemariage'] = fdatebk($_POST['datemariage']); }
+			if(!empty($_POST['dateconjoint'])) { $_POST['dateconjoint'] = fdatebk($_POST['dateconjoint']); }
 			if(!empty($_POST['categorie'])) $_POST['categorie'] = (($_POST['categorie'][0]=='1')?'1':'0').(($_POST['categorie'][1]=='1')?'1':'0').(($_POST['categorie'][2]=='1')?'1':'0');
 			if(!empty($_POST['conninformatiq'])) $_POST['conninformatiq'] = (($_POST['conninformatiq'][0]=='1')?'1':'0').(($_POST['conninformatiq'][1]=='1')?'1':'0').(($_POST['conninformatiq'][2]=='1')?'1':'0').(($_POST['conninformatiq'][3]=='1')?'1':'0');
 
@@ -320,11 +321,11 @@ switch ($_REQUEST['act'])
 			$_POST['taille'] = cleannombreonly($_POST['taille']);
 
 			//(à cause de l'ajax)
-			$_POST['cp1'] = $_POST['zipcode'];
+			$_POST['cp1']    = $_POST['zipcode'];
 			$_POST['ville1'] = $_POST['city'];
-			$_POST['cp2'] = $_POST['zipcode2'];
+			$_POST['cp2']    = $_POST['zipcode2'];
 			$_POST['ville2'] = $_POST['city2'];
-			$_POST['ncp'] = $_POST['zipcode3'];
+			$_POST['ncp']    = $_POST['zipcode3'];
 			$_POST['nville'] = $_POST['city3'];
 
 			if (empty($_POST['cp1'])) {
@@ -361,15 +362,15 @@ switch ($_REQUEST['act'])
 
 
 				### illu
-					$idp = $idpeople;
+					$idp        = $idpeople;
 
-					$photoweb = GetPhotoPath($idwebpeople, 'web', 'path');
-					$photofile = GetPhotoPath($idp, 'photo', 'path');
-					$photoraw = GetPhotoPath($idp, 'raw', 'path');
+					$photoweb   = GetPhotoPath($idwebpeople, 'web', 'path');
+					$photofile  = GetPhotoPath($idp, 'photo', 'path');
+					$photoraw   = GetPhotoPath($idp, 'raw', 'path');
 
-					$photoweb2 = GetPhotoPath($idwebpeople, 'web', 'path', '-b');
+					$photoweb2  = GetPhotoPath($idwebpeople, 'web', 'path', '-b');
 					$photofile2 = GetPhotoPath($idp, 'photo', 'path', '-b');
-					$photoraw2 = GetPhotoPath($idp, 'raw', 'path', '-b');
+					$photoraw2  = GetPhotoPath($idp, 'raw', 'path', '-b');
 
 
 					if ($_POST['image'] == 'oui') {
@@ -457,12 +458,12 @@ if (!empty($_SESSION['searchpeoplequid'])) { ?>
 		<td width="32">&nbsp</td>
 <?php
 	if (($_SESSION['roger'] == 'devel') or ($_SESSION['idagent'] == '20') or ($_SESSION['idagent'] == '22')) {
-		if ((!empty($idpeople)) and !($infos['codepeople'] > 0)) {  ?>
+		if ((!empty($idpeople)) and !(@$infos['codepeople'] > 0)) {  ?>
 			<td class="on"><a href="?act=delete&idpeople=<?php echo $idpeople ?>" onClick="return confirm('Etes-vous sur de vouloir effacer ce jobiste?')"><img src="<?php echo STATIK ?>illus/trash.gif" alt="search" width="32" height="32" border="0"><br>Supprimer</a></td>
 		<?php } ?>
 	<?php } ?>
 	<?php if (!empty($idpeople)) {  ?>
-		<td class="on"><a href="<?php echo NIVO ?>print/people/casting/casting1.php?act=search&casting=<?php echo $infos['idpeople']; ?>" method="post" target="popupC" onclick="window.open('','popupC','scrollbars=yes,status=yes,resizable=yes,width=500,height=400');"><img src="<?php echo STATIK ?>illus/casting.gif" alt="search" width="32" height="32" border="0"><br>Print Cast</a></td>
+		<td class="on"><a href="<?php echo NIVO ?>print/people/casting/casting1.php?act=search&casting=<?php echo @$infos['idpeople']; ?>" method="post" target="popupC" onclick="window.open('','popupC','scrollbars=yes,status=yes,resizable=yes,width=500,height=400');"><img src="<?php echo STATIK ?>illus/casting.gif" alt="search" width="32" height="32" border="0"><br>Print Cast</a></td>
 	<?php } ?>
 	<?php if(!empty($idpeople))
 		  {
@@ -482,7 +483,4 @@ if (!empty($_SESSION['searchpeoplequid'])) { ?>
 	</tr>
 </table>
 </div>
-<?php
-# Pied de Page
-include NIVO."includes/pied.php" ;
-?>
+<?php include NIVO."includes/pied.php" ; ?>

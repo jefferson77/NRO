@@ -1,11 +1,6 @@
-<?php
-/*
-	TODO : formater proprement, mois de tableaux en cascade
-*/
-?>
 <div id="centerzonelarge">
 	<div class="infosection">Recherche des people</div>
-	<form name="searchpeople" action="?act=list&casting=<?php echo $_REQUEST['casting'];?>" method="post">
+	<form name="searchpeople" action="?act=list&casting=<?php echo @$_REQUEST['casting'];?>" method="post">
 		<fieldset>
 		<legend>Infos de recherche</legend>
 		<table class="standard" border="0" cellspacing="1" cellpadding="0" align="center" width="95%">
@@ -23,10 +18,10 @@
 	        			<tr>
 	        				<td>Sexe</td>
 	        				<td>
-	        					<?php 
-	        					echo '<input type="radio" name="sexe" value="x" '; if ($_GET['sexe'] == 'x') { echo 'checked';} echo'> X';
-	        					echo '<input type="radio" name="sexe" value="f" '; if ($_GET['sexe'] == 'f') { echo 'checked';} echo'> F';
-	        					echo '<input type="radio" name="sexe" value="m" '; if ($_GET['sexe'] == 'm') { echo 'checked';} echo'> M';
+	        					<?php
+	        					echo '<input type="radio" name="sexe" value="x" '; if (@$_REQUEST['sexe'] == 'x') { echo 'checked';} echo'> X';
+	        					echo '<input type="radio" name="sexe" value="f" '; if (@$_REQUEST['sexe'] == 'f') { echo 'checked';} echo'> F';
+	        					echo '<input type="radio" name="sexe" value="m" '; if (@$_REQUEST['sexe'] == 'm') { echo 'checked';} echo'> M';
 	        					?>
 	        				</td>
 	        			</tr>
@@ -133,9 +128,9 @@
 	        			<tr>
 	        				<td>Secteur</td>
 	        				<td>
-	        					<input type="checkbox" name="categorie[0]" value="1"> Anim &nbsp; 
-	        					<input type="checkbox" name="categorie[1]" value="1"> Merch &nbsp; 
-	        					<input type="checkbox" name="categorie[2]" value="1"> Hotes &nbsp; 
+	        					<input type="checkbox" name="categorie[0]" value="1"> Anim &nbsp;
+	        					<input type="checkbox" name="categorie[1]" value="1"> Merch &nbsp;
+	        					<input type="checkbox" name="categorie[2]" value="1"> Hotes &nbsp;
 	        				</td>
 	        			</tr>
 	        			<tr>
@@ -156,9 +151,9 @@
 	        			<tr>
 	        				<td>Out ?</td>
 	        				<td>
-	        					<input type="radio" checked name="isout" value="notout"> not out &nbsp; 
-	        					<input type="radio" name="isout" value="out"> out &nbsp; 
-	        					<input type="radio" name="isout" value=""> tous &nbsp; 
+	        					<input type="radio" checked name="isout" value="notout"> not out &nbsp;
+	        					<input type="radio" name="isout" value="out"> out &nbsp;
+	        					<input type="radio" name="isout" value=""> tous &nbsp;
 	        				</td>
 	        			</tr>
 	        		</table>
@@ -199,7 +194,7 @@
 	        			<tr>
 	        				<td>Physionomie</td>
 	        				<td>
-		<?php 
+		<?php
 		$physios = array(
 		'occidental' => 'Occidental',
 		'slave' => 'Slave',
@@ -346,8 +341,8 @@
 	<table class="standard" border="0" cellspacing="1" cellpadding="1" align="center" width="95%">
 		<tr>
 	        <td>
-	        	Erreurs dans les informations : &nbsp 
-	        	<?php 
+	        	Erreurs dans les informations : &nbsp
+	        	<?php
 	        	echo '<input type="radio" name="err" value="Y"> Oui';
 	        	echo '<input type="radio" name="err" value="N"> Non';
 	        	?>
