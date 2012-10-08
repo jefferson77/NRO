@@ -113,12 +113,12 @@ foreach ($dtable as $key => $value) {
     {
         # Nouveau C4
         $np++;
-        $sem                       = 1;
-        $c4[$np]['in']             = $value['date'];
-        $c4[$np]['out']            = $value['date'];
-        $c4[$np]['trimin']         = $thistrimin;
-        $c4[$np]['trimout']        = $thistrimout;
-        $c4[$np]['moyhebdo'][$sem] = $totheures;
+        $sem                         = 1;
+        $c4[$np]['in']               = $value['date'];
+        $c4[$np]['out']              = $value['date'];
+        $c4[$np]['trimin']           = $thistrimin;
+        $c4[$np]['trimout']          = $thistrimout;
+        $c4[$np]['moyhebdo'][$sem][] = $totheures;
     }
     else
     {
