@@ -156,6 +156,7 @@ foreach ($c4 as $dat) {
     $mth = explode(".", round(array_sum($datas_semaine) / count($datas_semaine) * $regime, 2));
 
     $dat['moyhebdo'] =  prezero(@$mth[0], 2).postzero(@$mth[1], 2);
+    if ($dat['moyhebdo'] > $infp['maxhebdo']) $dat['moyhebdo'] = $infp['maxhebdo']; # Maximum du Q a 38 heures
 
     $dat['in']  = fdate($dat['in']);
     $dat['out'] = fdate($dat['out']);
