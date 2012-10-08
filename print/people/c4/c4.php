@@ -100,12 +100,18 @@ foreach ($dtable as $key => $value) {
     $lej = date("w", strtotime($value['date']));
     if ($lej == 0) $lej = 7; # dimanche a la fin
 
+    $regime = ($totheures <= 8) ? 6 : 5 ;
+
+
     ### switcher
-    if (($value['date'] == $dayplusun) and ($lasttrimin == $thistrimin) and ($lasttrimout = $thistrimout)) {
-        $c4[$np]['out'] = $value['date'];
-        if ($lej <= $lastj) $sem++;
-        $c4[$np]['moyhebdo'][$sem] += $totheures;
-    } else {
+    if (
+            ($value['date'] != $dayplusun) or   # Jours non consécutifs
+            ($lasttrimin != $thistrimin) or     # Changement de Trimestre
+            ($lasttrimout != $thistrimout) or   # Changement de Trimestre
+            ($regime != $lastregime)            # Changement de régime
+        )
+    {
+        # Nouveau C4
         $np++;
         $sem                       = 1;
         $c4[$np]['in']             = $value['date'];
@@ -113,6 +119,13 @@ foreach ($dtable as $key => $value) {
         $c4[$np]['trimin']         = $thistrimin;
         $c4[$np]['trimout']        = $thistrimout;
         $c4[$np]['moyhebdo'][$sem] = $totheures;
+    }
+    else
+    {
+        # Continue sur le même C4
+        $c4[$np]['out'] = $value['date'];
+        if ($lej <= $lastj) $sem++;
+        $c4[$np]['moyhebdo'][$sem][] = $totheures;
     }
 
     $c4[$np]['GrilleT'][$sem][$lej] = $totheures;
@@ -123,6 +136,7 @@ foreach ($dtable as $key => $value) {
     $lastj       = $lej;
     $lasttrimin  = $thistrimin;
     $lasttrimout = $thistrimout;
+    $lastregime  = $regime;
     $dayplusun   = date("Y-m-d", strtotime($value['date']." +1 day"));
 }
 
@@ -132,7 +146,15 @@ foreach ($dtable as $key => $value) {
 foreach ($c4 as $dat) {
 
     # Formatage Moyenne
-    $mth = explode(".", round(array_sum($dat['moyhebdo']) / count($dat['moyhebdo']), 2));
+
+    ## Pour l'instant je ne tiens compte que des jours de la première semaine, ca je ne sais pa comment tenir compte de plusieurs semaines consécutives.
+    if (count($dat['moyhebdo']) > 1) {
+        error_log("More than 1 week for C4 of " . $infp['nom'] . "(" . $infp['regnat'] . ") for period : " . $dat['in'] . " - ". $dat['out']);
+    }
+    $datas_semaine = array_shift($dat['moyhebdo']);
+
+    $mth = explode(".", round(array_sum($datas_semaine) / count($datas_semaine) * $regime, 2));
+
     $dat['moyhebdo'] =  prezero(@$mth[0], 2).postzero(@$mth[1], 2);
 
     $dat['in']  = fdate($dat['in']);
