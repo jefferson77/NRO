@@ -17,7 +17,7 @@ FROM facture f
 	LEFT JOIN client c ON c.idclient = f.idclient
 WHERE c.codetva NOT LIKE 'BE'
 	AND c.codetva NOT LIKE ''
-	AND f.datefac BETWEEN '2010-01-01' AND '2010-12-31'");
+	AND f.datefac BETWEEN '2011-01-01' AND '2011-12-31'");
 
 foreach ($factures as $row) {
 	if (!in_array($row['idfac'], $notin))

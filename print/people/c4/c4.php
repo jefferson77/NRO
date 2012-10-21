@@ -100,7 +100,7 @@ foreach ($dtable as $key => $value) {
     $lej = date("w", strtotime($value['date']));
     if ($lej == 0) $lej = 7; # dimanche a la fin
 
-    $regime = ($totheures <= 8) ? 6 : 5 ;
+    $regime = ($totheures <= 7.6) ? 6 : 5 ;
 
 
     ### switcher

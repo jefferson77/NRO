@@ -3,7 +3,7 @@ class dimona {
 ######## Config #####################################
     var $numexpediteur      = '106740'; # Numéro d'expéditeur Dimona (6 N)
     var $numemploy          = '112651531'; # Numero d'employeur ONSS
-    var $versionfichier     = '20121'; # Numéro de version du fichier 2012/1
+    var $versionfichier     = '20131'; # Numéro de version du fichier 2013/1
     var $KEYpass            = 'Exception01';
     var $login              = "EXP_CALLANDT";
     var $password           = "exception01";
